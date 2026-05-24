@@ -1,37 +1,46 @@
-# 适用于Unity的改进型LitJson库
+<div align="center">
 
-# 基于 `https://github.com/XINCGer/LitJson4Unity` 二次包装
+<img src="https://download.alianblank.com/gameframex/gameframex_logo_320.png" alt="GameFrameX Logo" width="160" height="160" />
 
-该库主要服务于 `https://github.com/AlianBlank/GameFrameX` 作为子库使用。
+# Game Frame X LitJson
 
-# 使用方式(三种方式)
+[![License](https://img.shields.io/github/license/GameFrameX/com.gameframex.unity.xincger.litjson)](https://github.com/GameFrameX/com.gameframex.unity.xincger.litjson/blob/main/LICENSE.md)
+[![Version](https://img.shields.io/github/v/release/GameFrameX/com.gameframex.unity.xincger.litjson)](https://github.com/GameFrameX/com.gameframex.unity.xincger.litjson/releases)
 
-1. 直接在 `manifest.json` 文件中添加以下内容
+All-in-One Solution for Indie Game Development · Empowering Indie Developers' Dreams
+
+[Documentation](https://gameframex.doc.alianblank.com) | [Quick Start](https://gameframex.doc.alianblank.com) | [QQ Group](https://qm.qq.com/q/urKenB9AU)
+
+**English** | [简体中文](README.zh-CN.md) | [繁體中文](README.zh-TW.md) | [日本語](README.ja.md) | [한국어](README.ko.md)
+
+</div>
+
+## Project Overview
+
+An improved LitJson library for Unity, repackaged from [XINCGer/LitJson4Unity](https://github.com/XINCGer/LitJson4Unity).
+
+This library serves as a sub-module for [GameFrameX](https://github.com/AlianBlank/GameFrameX).
+
+## Installation (choose one)
+
+1. Add to `manifest.json`:
    ```json
-      {"com.gameframex.unity.xincger.litjson": "https://github.com/AlianBlank/com.gameframex.unity.xincger.litjson.git"}
-    ```
-2. 在Unity 的`Packages Manager` 中使用`Git URL` 的方式添加库,地址为：https://github.com/AlianBlank/com.gameframex.unity.xincger.litjson.git
+   {"com.gameframex.unity.xincger.litjson": "https://github.com/GameFrameX/com.gameframex.unity.xincger.litjson.git"}
+   ```
+2. Add via Unity Package Manager using Git URL:
+   https://github.com/GameFrameX/com.gameframex.unity.xincger.litjson.git
+3. Download the repository and place it in your Unity project's `Packages` directory
 
-3. 直接下载仓库放置到Unity 项目的`Packages` 目录下。会自动加载识别
+## Modifications
 
-# 改动功能
+1. Added `link.xml` for stripping filter
+2. Added `LitJsonCroppingHelper` anti-stripping script
 
-1. 增加 `link.xml` 的裁剪过滤
-2. 增加 `LitJsonCroppingHelper` 防裁剪脚本
+## Features
 
----------------------------------------------------------------
+Based on the [original LitJson library](https://github.com/LitJSON/litjson), with additional features not supported in the original:
 
-### 简介
-
-基于[原生的LitJson库](https://github.com/LitJSON/litjson)改造的适用于Unity的LitJson库。  
-**`支持以下原生版本不支持的特性`**：
-
-* 支持float类型(最新原生版本已经支持)
-* 支持Unity内建类型(Vector2、Vector3、Rect、AnimationCure、Bounds、Color、Color32、Quaternion、RectOffset等）
-* 支持JsonIgnore Attritube，对某些字段跳过序列化
-* 支持对输出的Json内容格式化，更规整
-
-### 博客教程
-
-* [【Unity游戏开发】跟着马三一起魔改LitJson](https://www.cnblogs.com/msxh/p/12541159.html)
-
+- Support for float type
+- Support for Unity built-in types (Vector2, Vector3, Rect, AnimationCurve, Bounds, Color, Color32, Quaternion, RectOffset, etc.)
+- Support for JsonIgnore Attribute to skip serialization of certain fields
+- Support for formatted JSON output

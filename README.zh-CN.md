@@ -1,0 +1,45 @@
+<div align="center">
+
+<img src="https://download.alianblank.com/gameframex/gameframex_logo_320.png" alt="GameFrameX Logo" width="160" height="160" />
+
+# Game Frame X LitJson
+
+[![License](https://img.shields.io/github/license/GameFrameX/com.gameframex.unity.xincger.litjson)](https://github.com/GameFrameX/com.gameframex.unity.xincger.litjson/blob/main/LICENSE.md)
+[![Version](https://img.shields.io/github/v/release/GameFrameX/com.gameframex.unity.xincger.litjson)](https://github.com/GameFrameX/com.gameframex.unity.xincger.litjson/releases)
+
+独立游戏前后端一体化解决方案 · 独立游戏开发者的圆梦大使
+
+[文档](https://gameframex.doc.alianblank.com) | [快速开始](https://gameframex.doc.alianblank.com) | [QQ群](https://qm.qq.com/q/urKenB9AU)
+
+[English](README.md) | **简体中文** | [繁體中文](README.zh-TW.md) | [日本語](README.ja.md) | [한국어](README.ko.md)
+
+</div>
+
+## 项目简介
+
+适用于Unity的改进型 LitJson 库，基于 [XINCGer/LitJson4Unity](https://github.com/XINCGer/LitJson4Unity) 二次包装。
+
+该库主要服务于 [GameFrameX](https://github.com/AlianBlank/GameFrameX) 作为子库使用。
+
+## 安装方式（任选其一）
+
+1. 直接在 `manifest.json` 文件中添加以下内容
+   ```json
+   {"com.gameframex.unity.xincger.litjson": "https://github.com/GameFrameX/com.gameframex.unity.xincger.litjson.git"}
+   ```
+2. 在 Unity 的 `Packages Manager` 中使用 `Git URL` 的方式添加库，地址为：https://github.com/GameFrameX/com.gameframex.unity.xincger.litjson.git
+3. 直接下载仓库放置到 Unity 项目的 `Packages` 目录下。会自动加载识别
+
+## 改动功能
+
+1. 增加 `link.xml` 的裁剪过滤
+2. 增加 `LitJsonCroppingHelper` 防裁剪脚本
+
+## 特性
+
+基于[原生的LitJson库](https://github.com/LitJSON/litjson)改造，支持以下原生版本不支持的特性：
+
+- 支持 float 类型
+- 支持 Unity 内建类型（Vector2、Vector3、Rect、AnimationCure、Bounds、Color、Color32、Quaternion、RectOffset 等）
+- 支持 JsonIgnore Attribute，对某些字段跳过序列化
+- 支持对输出的 Json 内容格式化，更规整
