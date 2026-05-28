@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/gameframex/com.gameframex.unity.xincger.litjson/compare/1.1.0...1.1.1) (2026-05-28)
+
+
+### Bug Fixes
+
+* **ci:** 统一 .github 工作流配置 ([3a66095](https://github.com/gameframex/com.gameframex.unity.xincger.litjson/commit/3a660957472a6888a3563436214d72332beafc1f))
+
 # [1.1.0](https://github.com/gameframex/com.gameframex.unity.xincger.litjson/compare/1.0.2...1.1.0) (2025-12-23)
 
 
