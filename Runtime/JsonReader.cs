@@ -389,7 +389,9 @@ namespace LitJson
         public void Close ()
         {
             if (end_of_input)
+            {
                 return;
+            }
 
             end_of_input = true;
             end_of_json  = true;
@@ -405,7 +407,9 @@ namespace LitJson
         public bool Read ()
         {
             if (end_of_input)
+            {
                 return false;
+            }
 
             if (end_of_json) {
                 end_of_json = false;
@@ -424,7 +428,9 @@ namespace LitJson
                 read_started = true;
 
                 if (! ReadToken ())
+                {
                     return false;
+                }
             }
 
 
@@ -433,7 +439,9 @@ namespace LitJson
             while (true) {
                 if (parser_return) {
                     if (automaton_stack.Peek () == (int) ParserToken.End)
+                    {
                         end_of_json = true;
+                    }
 
                     return true;
                 }
@@ -467,7 +475,9 @@ namespace LitJson
                 }
 
                 if (entry_symbols[0] == (int) ParserToken.Epsilon)
+                {
                     continue;
+                }
 
                 for (int i = entry_symbols.Length - 1; i >= 0; i--)
                     automaton_stack.Push (entry_symbols[i]);
