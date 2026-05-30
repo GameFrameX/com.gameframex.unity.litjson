@@ -882,10 +882,14 @@ namespace LitJson
                 handler = fsm_handler_table[state - 1];
 
                 if (! handler (fsm_context))
+                {
                     throw new JsonException (input_char);
+                }
 
                 if (end_of_input)
+                {
                     return false;
+                }
 
                 if (fsm_context.Return) {
                     string_value = string_buffer.ToString ();
@@ -893,7 +897,9 @@ namespace LitJson
                     token = fsm_return_table[state - 1];
 
                     if (token == (int) ParserToken.Char)
+                    {
                         token = input_char;
+                    }
 
                     state = fsm_context.NextState;
 
