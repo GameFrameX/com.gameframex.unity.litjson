@@ -828,9 +828,12 @@ namespace LitJson
             json = null;
             if(IsObject)
             {
+                if (!(obj is string key))
+                    return false;
+
                 JsonData value = null;
-                if (inst_object.TryGetValue((string)obj, out value))
-                    return inst_object.Remove((string)obj) && object_list.Remove(new KeyValuePair<string, JsonData>((string)obj, value));
+                if (inst_object.TryGetValue(key, out value))
+                    return inst_object.Remove(key) && object_list.Remove(new KeyValuePair<string, JsonData>(key, value));
                 else
                     throw new KeyNotFoundException("The specified key was not found in the JsonData object.");
             }
