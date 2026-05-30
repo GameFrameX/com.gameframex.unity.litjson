@@ -875,10 +875,31 @@ namespace LitJson
                 return true;
 
             case JsonType.Object:
-                return this.inst_object.Equals (x.inst_object);
+                if (x.inst_object == null || this.inst_object == null)
+                    return x.inst_object == this.inst_object;
+                if (x.inst_object.Count != this.inst_object.Count)
+                    return false;
+                foreach (var kvp in this.inst_object)
+                {
+                    JsonData otherValue;
+                    if (!x.inst_object.TryGetValue(kvp.Key, out otherValue))
+                        return false;
+                    if (!kvp.Value.Equals(otherValue))
+                        return false;
+                }
+                return true;
 
             case JsonType.Array:
-                return this.inst_array.Equals (x.inst_array);
+                if (x.inst_array == null || this.inst_array == null)
+                    return x.inst_array == this.inst_array;
+                if (x.inst_array.Count != this.inst_array.Count)
+                    return false;
+                for (int i = 0; i < this.inst_array.Count; i++)
+                {
+                    if (!this.inst_array[i].Equals(x.inst_array[i]))
+                        return false;
+                }
+                return true;
 
             case JsonType.String:
                 return this.inst_string.Equals (x.inst_string);
