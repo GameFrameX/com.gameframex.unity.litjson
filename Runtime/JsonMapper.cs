@@ -312,10 +312,10 @@ namespace LitJson
             {
                 if (!conv_ops.ContainsKey(t1))
                     conv_ops.Add(t1, new Dictionary<Type, MethodInfo>());
-            }
 
-            if (conv_ops[t1].ContainsKey(t2))
-                return conv_ops[t1][t2];
+                if (conv_ops[t1].ContainsKey(t2))
+                    return conv_ops[t1][t2];
+            }
 
             MethodInfo op = t1.GetMethod(
                 "op_Implicit", new Type[] { t2 });
