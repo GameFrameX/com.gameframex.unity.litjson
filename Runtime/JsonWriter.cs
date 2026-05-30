@@ -135,46 +135,62 @@ namespace LitJson
         private void DoValidation(Condition cond)
         {
             if (!context.ExpectingValue)
+            {
                 context.Count++;
+            }
 
             if (!validate)
+            {
                 return;
+            }
 
             if (has_reached_end)
+            {
                 throw new JsonException(
                     "A complete JSON symbol has already been written");
+            }
 
             switch (cond)
             {
                 case Condition.InArray:
                     if (!context.InArray)
+                    {
                         throw new JsonException(
                             "Can't close an array here");
+                    }
                     break;
 
                 case Condition.InObject:
                     if (!context.InObject || context.ExpectingValue)
+                    {
                         throw new JsonException(
                             "Can't close an object here");
+                    }
                     break;
 
                 case Condition.NotAProperty:
                     if (context.InObject && !context.ExpectingValue)
+                    {
                         throw new JsonException(
                             "Expected a property");
+                    }
                     break;
 
                 case Condition.Property:
                     if (!context.InObject || context.ExpectingValue)
+                    {
                         throw new JsonException(
                             "Can't add a property here");
+                    }
                     break;
 
                 case Condition.Value:
                     if (!context.InArray &&
                         (!context.InObject || !context.ExpectingValue))
+                    {
                         throw new JsonException(
                             "Can't add a value here");
+                    }
 
                     break;
             }
@@ -204,9 +220,13 @@ namespace LitJson
                 num = n % 16;
 
                 if (num < 10)
+                {
                     hex[3 - i] = (char) ('0' + num);
+                }
                 else
+                {
                     hex[3 - i] = (char) ('A' + (num - 10));
+                }
 
                 n >>= 4;
             }
@@ -397,9 +417,13 @@ namespace LitJson
             PutNewline();
 
             if (str == null)
+            {
                 Put("null");
+            }
             else
+            {
                 PutString(str);
+            }
 
             context.ExpectingValue = false;
         }
@@ -422,7 +446,9 @@ namespace LitJson
 
             ctx_stack.Pop();
             if (ctx_stack.Count == 1)
+            {
                 has_reached_end = true;
+            }
             else
             {
                 context = ctx_stack.Peek();
@@ -454,7 +480,9 @@ namespace LitJson
 
             ctx_stack.Pop();
             if (ctx_stack.Count == 1)
+            {
                 has_reached_end = true;
+            }
             else
             {
                 context = ctx_stack.Peek();
@@ -497,12 +525,16 @@ namespace LitJson
                 for (int i = context.Padding - propertyName.Length;
                      i >= 0;
                      i--)
+                {
                     writer.Write(' ');
+                }
 
                 writer.Write(": ");
             }
             else
+            {
                 writer.Write(':');
+            }
 
             context.ExpectingValue = true;
         }
