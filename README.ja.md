@@ -19,11 +19,48 @@
 
 Unity 向けの改良版 LitJson ライブラリ。[XINCGer/LitJson4Unity](https://github.com/XINCGer/LitJson4Unity) をベースに再パッケージされています。
 
-## インストール方法（いずれかを選択）
+このライブラリは [GameFrameX](https://github.com/AlianBlank/GameFrameX) のサブモジュールとして機能します。
 
-1. `manifest.json` に追加：
-   ```json
-   {"com.gameframex.unity.xincger.litjson": "https://github.com/GameFrameX/com.gameframex.unity.xincger.litjson.git"}
-   ```
-2. Unity の Package Manager で Git URL を使用して追加
-3. リポジトリを直接ダウンロードして Unity プロジェクトの `Packages` ディレクトリに配置
+## クイックスタート
+
+Unity プロジェクトの `Packages/manifest.json` を編集し、`scopedRegistries` セクションを追加してください：
+
+```json
+{
+  "scopedRegistries": [
+    {
+      "name": "GameFrameX",
+      "url": "https://gameframex.upm.alianblank.uk",
+      "scopes": [
+        "com.gameframex"
+      ]
+    }
+  ]
+}
+```
+
+次に `dependencies` にこのパッケージを追加してください：
+
+```json
+{
+  "dependencies": {
+    "com.gameframex.unity.xincger.litjson": "1.1.1"
+  }
+}
+```
+
+`scopes` は、どのパッケージをこのレジストリから解決するかを制御します。`com.gameframex` で始まるパッケージのみがこのレジストリから取得されます。
+
+## 変更点
+
+1. `link.xml` のストリッピングフィルターを追加
+2. `LitJsonCroppingHelper` アンチストリッピングスクリプトを追加
+
+## 特徴
+
+[オリジナルの LitJson ライブラリ](https://github.com/LitJSON/litjson)をベースに、オリジナルではサポートされていない以下の機能を追加しています：
+
+- float 型のサポート
+- Unity 組み込み型のサポート（Vector2、Vector3、Rect、AnimationCurve、Bounds、Color、Color32、Quaternion、RectOffset など）
+- JsonIgnore Attribute による特定フィールドのシリアライズスキップ
+- JSON 出力のフォーマット対応
