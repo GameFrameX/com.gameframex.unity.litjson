@@ -21,15 +21,35 @@ An improved LitJson library for Unity, repackaged from [XINCGer/LitJson4Unity](h
 
 This library serves as a sub-module for [GameFrameX](https://github.com/AlianBlank/GameFrameX).
 
-## Installation (choose one)
+## Quick Start
 
-1. Add to `manifest.json`:
-   ```json
-   {"com.gameframex.unity.xincger.litjson": "https://github.com/GameFrameX/com.gameframex.unity.xincger.litjson.git"}
-   ```
-2. Add via Unity Package Manager using Git URL:
-   https://github.com/GameFrameX/com.gameframex.unity.xincger.litjson.git
-3. Download the repository and place it in your Unity project's `Packages` directory
+Edit your Unity project's `Packages/manifest.json` and add the `scopedRegistries` section:
+
+```json
+{
+  "scopedRegistries": [
+    {
+      "name": "GameFrameX",
+      "url": "https://gameframex.upm.alianblank.uk",
+      "scopes": [
+        "com.gameframex"
+      ]
+    }
+  ]
+}
+```
+
+Then add this package to `dependencies`:
+
+```json
+{
+  "dependencies": {
+    "com.gameframex.unity.xincger.litjson": "1.1.1"
+  }
+}
+```
+
+`scopes` controls which packages are resolved through this registry. Only packages whose names start with `com.gameframex` will be fetched from it.
 
 ## Modifications
 

@@ -17,18 +17,39 @@
 
 ## 项目简介
 
-适用于Unity的改进型 LitJson 库，基于 [XINCGer/LitJson4Unity](https://github.com/XINCGer/LitJson4Unity) 二次包装。
+适用于 Unity 的改进型 LitJson 库，基于 [XINCGer/LitJson4Unity](https://github.com/XINCGer/LitJson4Unity) 二次包装。
 
 该库主要服务于 [GameFrameX](https://github.com/AlianBlank/GameFrameX) 作为子库使用。
 
-## 安装方式（任选其一）
+## 快速开始
 
-1. 直接在 `manifest.json` 文件中添加以下内容
-   ```json
-   {"com.gameframex.unity.xincger.litjson": "https://github.com/GameFrameX/com.gameframex.unity.xincger.litjson.git"}
-   ```
-2. 在 Unity 的 `Packages Manager` 中使用 `Git URL` 的方式添加库，地址为：https://github.com/GameFrameX/com.gameframex.unity.xincger.litjson.git
-3. 直接下载仓库放置到 Unity 项目的 `Packages` 目录下。会自动加载识别
+编辑 Unity 项目的 `Packages/manifest.json`，添加 `scopedRegistries` 部分：
+
+```json
+{
+  "scopedRegistries": [
+    {
+      "name": "GameFrameX",
+      "url": "https://gameframex.upm.alianblank.uk",
+      "scopes": [
+        "com.gameframex"
+      ]
+    }
+  ]
+}
+```
+
+然后在 `dependencies` 中添加此包：
+
+```json
+{
+  "dependencies": {
+    "com.gameframex.unity.xincger.litjson": "1.1.1"
+  }
+}
+```
+
+`scopes` 控制哪些包通过此注册表解析。只有以 `com.gameframex` 开头的包才会从这个注册表获取。
 
 ## 改动功能
 
@@ -37,9 +58,9 @@
 
 ## 特性
 
-基于[原生的LitJson库](https://github.com/LitJSON/litjson)改造，支持以下原生版本不支持的特性：
+基于[原生的 LitJson 库](https://github.com/LitJSON/litjson)改造，支持以下原生版本不支持的特性：
 
 - 支持 float 类型
-- 支持 Unity 内建类型（Vector2、Vector3、Rect、AnimationCure、Bounds、Color、Color32、Quaternion、RectOffset 等）
+- 支持 Unity 内建类型（Vector2、Vector3、Rect、AnimationCurve、Bounds、Color、Color32、Quaternion、RectOffset 等）
 - 支持 JsonIgnore Attribute，对某些字段跳过序列化
 - 支持对输出的 Json 内容格式化，更规整
