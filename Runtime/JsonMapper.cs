@@ -960,8 +960,7 @@ namespace LitJson
             foreach (PropertyMetadata p_data in props)
             {
                 var skipAttributesList = p_data.Info.GetCustomAttributes(typeof(JsonIgnore), true);
-                var skipAttributes = skipAttributesList as ICollection<Attribute>;
-                if (skipAttributes.Count > 0)
+                if (skipAttributesList.Length > 0)
                 {
                     continue;
                 }
