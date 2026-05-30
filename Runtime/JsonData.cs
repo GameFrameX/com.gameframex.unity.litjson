@@ -85,7 +85,7 @@ namespace LitJson
         /// <returns>true if the json contains an element that has the specified key; otherwise, false.</returns>
         public Boolean ContainsKey(String key) {
             EnsureDictionary();
-            return this.inst_object.Keys.Contains(key);
+            return this.inst_object.ContainsKey(key);
         }
         #endregion
 
