@@ -34,6 +34,10 @@ namespace LitJson
 
         // Used to implement the IOrderedDictionary interface
         private IList<KeyValuePair<string, JsonData>> object_list;
+
+        // Reusable writer + lock for ToJson(), mirrors JsonMapper.static_writer pattern
+        private static readonly JsonWriter _writer = new JsonWriter();
+        private static readonly object _writerLock = new object();
         #endregion
 
 
@@ -963,12 +967,17 @@ namespace LitJson
             if (json != null)
                 return json;
 
-            StringWriter sw = new StringWriter ();
-            JsonWriter writer = new JsonWriter (sw);
-            writer.Validate = false;
+            lock (_writerLock)
+            {
+                if (json != null)
+                    return json;
 
-            WriteJson (this, writer);
-            json = sw.ToString ();
+                _writer.Reset();
+                _writer.Validate = false;
+
+                WriteJson (this, _writer);
+                json = _writer.ToString();
+            }
 
             return json;
         }
