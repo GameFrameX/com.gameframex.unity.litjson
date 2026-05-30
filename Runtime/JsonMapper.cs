@@ -137,6 +137,7 @@ namespace LitJson
 
         private static readonly JsonWriter static_writer;
         private static readonly object static_writer_lock = new Object();
+        private static bool _reentrantGuard;
         #endregion
 
 
@@ -991,13 +992,26 @@ namespace LitJson
         {
             lock (static_writer_lock)
             {
-                static_writer.PrettyPrint = prettyPrint;
+                if (_reentrantGuard)
+                    throw new InvalidOperationException(
+                        "JsonMapper.ToJson() cannot be called recursively from within an exporter or ToString(). " +
+                        "Use ToJson(object, JsonWriter) overload instead.");
 
-                static_writer.Reset();
+                _reentrantGuard = true;
+                try
+                {
+                    static_writer.PrettyPrint = prettyPrint;
 
-                WriteValue(obj, static_writer, true, 0);
+                    static_writer.Reset();
 
-                return static_writer.ToString();
+                    WriteValue(obj, static_writer, true, 0);
+
+                    return static_writer.ToString();
+                }
+                finally
+                {
+                    _reentrantGuard = false;
+                }
             }
         }
 
