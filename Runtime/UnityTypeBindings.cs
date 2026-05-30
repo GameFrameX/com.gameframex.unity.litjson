@@ -16,7 +16,7 @@ namespace LitJson
     public static class UnityTypeBindings
     {
 
-        static bool registerd;
+        static volatile bool _registered;
 
         static UnityTypeBindings()
         {
@@ -26,8 +26,8 @@ namespace LitJson
         public static void Register()
         {
 
-            if (registerd) return;
-            registerd = true;
+            if (_registered) return;
+            _registered = true;
 
 
             // 注册Type类型的Exporter
