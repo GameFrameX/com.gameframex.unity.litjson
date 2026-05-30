@@ -421,7 +421,7 @@ namespace LitJson
         {
             if (data.type != JsonType.Boolean)
                 throw new InvalidCastException (
-                    "Instance of JsonData doesn't hold a double");
+                    "Instance of JsonData doesn't hold a boolean");
 
             return data.inst_boolean;
         }
