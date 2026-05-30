@@ -124,6 +124,8 @@ namespace LitJson
         private static readonly IDictionary<Type, ArrayMetadata> array_metadata;
         private static readonly object array_metadata_lock = new Object();
 
+        private static readonly object custom_table_lock = new Object();
+
         private static readonly IDictionary<Type,
                 IDictionary<Type, MethodInfo>> conv_ops;
         private static readonly object conv_ops_lock = new Object();
@@ -374,18 +376,22 @@ namespace LitJson
                 Type json_type = reader.Value.GetType();
 
                 if (value_type.IsAssignableFrom(json_type))
+                {
                     return reader.Value;
+                }
 
                 // If there's a custom importer that fits, use it
-                if (custom_importers_table.ContainsKey(json_type) &&
-                    custom_importers_table[json_type].ContainsKey(
-                        value_type))
+                lock (custom_table_lock)
                 {
+                    if (custom_importers_table.ContainsKey(json_type) &&
+                        custom_importers_table[json_type].ContainsKey(
+                            value_type))
+                    {
+                        ImporterFunc importer =
+                            custom_importers_table[json_type][value_type];
 
-                    ImporterFunc importer =
-                        custom_importers_table[json_type][value_type];
-
-                    return importer(reader.Value);
+                        return importer(reader.Value);
+                    }
                 }
 
                 // Maybe there's a base importer that works
@@ -920,12 +926,15 @@ namespace LitJson
             Type obj_type = obj.GetType();
 
             // See if there's a custom exporter for the object
-            if (custom_exporters_table.ContainsKey(obj_type))
+            lock (custom_table_lock)
             {
-                ExporterFunc exporter = custom_exporters_table[obj_type];
-                exporter(obj, writer);
+                if (custom_exporters_table.ContainsKey(obj_type))
+                {
+                    ExporterFunc exporter = custom_exporters_table[obj_type];
+                    exporter(obj, writer);
 
-                return;
+                    return;
+                }
             }
 
             // If not, maybe there's a base exporter
@@ -1088,7 +1097,10 @@ namespace LitJson
                     exporter((T)obj, writer);
                 };
 
-            custom_exporters_table[typeof(T)] = exporter_wrapper;
+            lock (custom_table_lock)
+            {
+                custom_exporters_table[typeof(T)] = exporter_wrapper;
+            }
         }
 
         public static void RegisterImporter<TJson, TValue>(
@@ -1100,18 +1112,27 @@ namespace LitJson
                     return importer((TJson)input);
                 };
 
-            RegisterImporter(custom_importers_table, typeof(TJson),
-                              typeof(TValue), importer_wrapper);
+            lock (custom_table_lock)
+            {
+                RegisterImporter(custom_importers_table, typeof(TJson),
+                                  typeof(TValue), importer_wrapper);
+            }
         }
 
         public static void UnregisterExporters()
         {
-            custom_exporters_table.Clear();
+            lock (custom_table_lock)
+            {
+                custom_exporters_table.Clear();
+            }
         }
 
         public static void UnregisterImporters()
         {
-            custom_importers_table.Clear();
+            lock (custom_table_lock)
+            {
+                custom_importers_table.Clear();
+            }
         }
     }
 }
