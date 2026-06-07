@@ -24,5 +24,8 @@
   "publishConfig": {
     "access": "public",
     "registry": "https://npm.cnb.cool/GameFrameX/npm/-/packages/"
-  }
+  },
+  "documentationUrl": "https://gameframex.doc.alianblank.com",
+  "changelogUrl": "https://github.com/gameframex/com.gameframex.unity.xincger.litjson/blob/main/CHANGELOG.md",
+  "licensesUrl": "https://github.com/gameframex/com.gameframex.unity.xincger.litjson/blob/main/LICENSE.md"
 }
