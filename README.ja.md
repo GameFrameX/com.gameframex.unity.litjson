@@ -20,6 +20,7 @@
 [English](README.md) | [简体中文](README.zh-CN.md) | [繁體中文](README.zh-TW.md) | **日本語** | [한국어](README.ko.md)
 
 </div>
+
 ## プロジェクト概要
 
 Unity 向けの改良版 LitJson ライブラリ。[XINCGer/LitJson4Unity](https://github.com/XINCGer/LitJson4Unity) をベースに再パッケージされています。
