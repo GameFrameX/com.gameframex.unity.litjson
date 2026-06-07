@@ -1,20 +1,24 @@
 <div align="center">
 
-<img src="https://download.alianblank.com/gameframex/gameframex_logo_320.png" alt="GameFrameX Logo" width="160" height="160" />
+<img src="https://download.alianblank.com/gameframex/gameframex_logo_320.png" alt="Game Frame X Logo" width="160" />
 
 # Game Frame X LitJson
 
 [![License](https://img.shields.io/github/license/GameFrameX/com.gameframex.unity.xincger.litjson)](https://github.com/GameFrameX/com.gameframex.unity.xincger.litjson/blob/main/LICENSE.md)
 [![Version](https://img.shields.io/github/v/release/GameFrameX/com.gameframex.unity.xincger.litjson)](https://github.com/GameFrameX/com.gameframex.unity.xincger.litjson/releases)
+[![Documentation](https://img.shields.io/badge/Documentation-docs-blue)](https://gameframex.doc.alianblank.com)
 
 インディゲーム開発者向けオールインワンソリューション · インディ開発者の夢を支援
 
-[ドキュメント](https://gameframex.doc.alianblank.com) | [クイックスタート](https://gameframex.doc.alianblank.com) | [QQグループ](https://qm.qq.com/q/urKenB9AU)
+<br />
+
+[ドキュメント](https://gameframex.doc.alianblank.com) · [クイックスタート](#quick-start) · [QQグループ](https://qm.qq.com/q/urKenB9AU)
+
+<br />
 
 [English](README.md) | [简体中文](README.zh-CN.md) | [繁體中文](README.zh-TW.md) | **日本語** | [한국어](README.ko.md)
 
 </div>
-
 ## プロジェクト概要
 
 Unity 向けの改良版 LitJson ライブラリ。[XINCGer/LitJson4Unity](https://github.com/XINCGer/LitJson4Unity) をベースに再パッケージされています。
