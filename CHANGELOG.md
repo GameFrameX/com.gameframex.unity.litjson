@@ -1,3 +1,10 @@
+## [1.1.3](https://github.com/gameframex/com.gameframex.unity.xincger.litjson/compare/1.1.2...1.1.3) (2026-06-07)
+
+
+### Bug Fixes
+
+* 补全包规范文件（LICENSE/CHANGELOG/URL 字段/unity 字段） ([c6820cc](https://github.com/gameframex/com.gameframex.unity.xincger.litjson/commit/c6820cce5c79da5cce0af64043061672354f7724))
+
 ## [1.1.2](https://github.com/gameframex/com.gameframex.unity.xincger.litjson/compare/1.1.1...1.1.2) (2026-05-30)
 
 
