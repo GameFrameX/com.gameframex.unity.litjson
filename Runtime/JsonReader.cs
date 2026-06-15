@@ -98,46 +98,81 @@ namespace GameFrameX.LitJSON.Runtime
 
         #region Public Properties
 
-        /// <summary>获取或设置是否允许 JSON 文本中出现注释。/ Gets or sets whether comments are allowed in the JSON text.</summary>
+        /// <summary>
+        /// 获取或设置是否允许 JSON 文本中出现注释。
+        /// </summary>
+        /// <remarks>
+        /// Gets or sets whether comments are allowed in the JSON text.
+        /// </remarks>
         public bool AllowComments
         {
             get { return lexer.AllowComments; }
             set { lexer.AllowComments = value; }
         }
 
-        /// <summary>获取或设置是否允许使用单引号包裹的字符串。/ Gets or sets whether single-quoted strings are allowed.</summary>
+        /// <summary>
+        /// 获取或设置是否允许使用单引号包裹的字符串。
+        /// </summary>
+        /// <remarks>
+        /// Gets or sets whether single-quoted strings are allowed.
+        /// </remarks>
         public bool AllowSingleQuotedStrings
         {
             get { return lexer.AllowSingleQuotedStrings; }
             set { lexer.AllowSingleQuotedStrings = value; }
         }
 
-        /// <summary>获取或设置反序列化时是否跳过目标对象中不存在的成员。/ Gets or sets whether non-member properties are skipped during deserialization.</summary>
+        /// <summary>
+        /// 获取或设置反序列化时是否跳过目标对象中不存在的成员。
+        /// </summary>
+        /// <remarks>
+        /// Gets or sets whether non-member properties are skipped during deserialization.
+        /// </remarks>
         public bool SkipNonMembers
         {
             get { return skip_non_members; }
             set { skip_non_members = value; }
         }
 
-        /// <summary>获取是否已到达输入流的末尾。/ Gets a value indicating whether the end of the input has been reached.</summary>
+        /// <summary>
+        /// 获取是否已到达输入流的末尾。
+        /// </summary>
+        /// <remarks>
+        /// Gets a value indicating whether the end of the input has been reached.
+        /// </remarks>
         public bool EndOfInput
         {
             get { return end_of_input; }
         }
 
-        /// <summary>获取是否已到达当前 JSON 文本的末尾。/ Gets a value indicating whether the end of the current JSON text has been reached.</summary>
+        /// <summary>
+        /// 获取是否已到达当前 JSON 文本的末尾。
+        /// </summary>
+        /// <remarks>
+        /// Gets a value indicating whether the end of the current JSON text has been reached.
+        /// </remarks>
         public bool EndOfJson
         {
             get { return end_of_json; }
         }
 
-        /// <summary>获取最近一次读取到的词法单元类型。/ Gets the type of the token most recently read.</summary>
+        /// <summary>
+        /// 获取最近一次读取到的词法单元类型。
+        /// </summary>
+        /// <remarks>
+        /// Gets the type of the token most recently read.
+        /// </remarks>
         public JsonToken Token
         {
             get { return token; }
         }
 
-        /// <summary>获取最近一次读取到的词法单元的值。/ Gets the value of the token most recently read.</summary>
+        /// <summary>
+        /// 获取最近一次读取到的词法单元的值。
+        /// </summary>
+        /// <remarks>
+        /// Gets the value of the token most recently read.
+        /// </remarks>
         public object Value
         {
             get { return token_value; }

@@ -185,16 +185,37 @@ namespace GameFrameX.LitJSON.Runtime
 
         #region ICollection Properties
 
+        /// <summary>
+        /// 获取包含在 <see cref="ICollection"/> 中的元素数量。
+        /// </summary>
+        /// <remarks>
+        /// Gets the number of elements contained in the <see cref="ICollection"/>.
+        /// </remarks>
+        /// <value>元素数量 / The number of elements</value>
         int ICollection.Count
         {
             get { return Count; }
         }
 
+        /// <summary>
+        /// 获取一个值，指示对 <see cref="ICollection"/> 的访问是否同步（线程安全）。
+        /// </summary>
+        /// <remarks>
+        /// Gets a value indicating whether access to the <see cref="ICollection"/> is synchronized (thread safe).
+        /// </remarks>
+        /// <value>始终返回 <c>false</c> / Always returns <c>false</c></value>
         bool ICollection.IsSynchronized
         {
             get { return EnsureCollection().IsSynchronized; }
         }
 
+        /// <summary>
+        /// 获取可用于同步对 <see cref="ICollection"/> 访问的对象。
+        /// </summary>
+        /// <remarks>
+        /// Gets an object that can be used to synchronize access to the <see cref="ICollection"/>.
+        /// </remarks>
+        /// <value>用于同步访问的对象 / An object that can be used to synchronize access</value>
         object ICollection.SyncRoot
         {
             get { return EnsureCollection().SyncRoot; }
@@ -205,16 +226,37 @@ namespace GameFrameX.LitJSON.Runtime
 
         #region IDictionary Properties
 
+        /// <summary>
+        /// 获取一个值，指示 <see cref="IDictionary"/> 是否具有固定大小。
+        /// </summary>
+        /// <remarks>
+        /// Gets a value indicating whether the <see cref="IDictionary"/> has a fixed size.
+        /// </remarks>
+        /// <value>如果具有固定大小则返回 <c>true</c>；否则返回 <c>false</c> / <c>true</c> if fixed size; otherwise <c>false</c></value>
         bool IDictionary.IsFixedSize
         {
             get { return EnsureDictionary().IsFixedSize; }
         }
 
+        /// <summary>
+        /// 获取一个值，指示 <see cref="IDictionary"/> 是否只读。
+        /// </summary>
+        /// <remarks>
+        /// Gets a value indicating whether the <see cref="IDictionary"/> is read-only.
+        /// </remarks>
+        /// <value>如果只读则返回 <c>true</c>；否则返回 <c>false</c> / <c>true</c> if read-only; otherwise <c>false</c></value>
         bool IDictionary.IsReadOnly
         {
             get { return EnsureDictionary().IsReadOnly; }
         }
 
+        /// <summary>
+        /// 获取包含 <see cref="IDictionary"/> 中键的 <see cref="ICollection"/>。
+        /// </summary>
+        /// <remarks>
+        /// Gets an <see cref="ICollection"/> containing the keys of the <see cref="IDictionary"/>.
+        /// </remarks>
+        /// <value>包含所有键的集合 / A collection containing all keys</value>
         ICollection IDictionary.Keys
         {
             get
@@ -232,6 +274,13 @@ namespace GameFrameX.LitJSON.Runtime
             }
         }
 
+        /// <summary>
+        /// 获取包含 <see cref="IDictionary"/> 中值的 <see cref="ICollection"/>。
+        /// </summary>
+        /// <remarks>
+        /// Gets an <see cref="ICollection"/> containing the values of the <see cref="IDictionary"/>.
+        /// </remarks>
+        /// <value>包含所有值的集合 / A collection containing all values</value>
         ICollection IDictionary.Values
         {
             get
@@ -254,36 +303,85 @@ namespace GameFrameX.LitJSON.Runtime
 
         #region IJsonWrapper Properties
 
+        /// <summary>
+        /// 获取一个值，指示当前 JSON 数据是否为数组类型。
+        /// </summary>
+        /// <remarks>
+        /// Gets a value indicating whether the current JSON data holds an array.
+        /// </remarks>
+        /// <value>如果为数组类型则返回 <c>true</c>；否则返回 <c>false</c> / <c>true</c> if the data holds an array; otherwise <c>false</c></value>
         bool IJsonWrapper.IsArray
         {
             get { return IsArray; }
         }
 
+        /// <summary>
+        /// 获取一个值，指示当前 JSON 数据是否为布尔类型。
+        /// </summary>
+        /// <remarks>
+        /// Gets a value indicating whether the current JSON data holds a boolean.
+        /// </remarks>
+        /// <value>如果为布尔类型则返回 <c>true</c>；否则返回 <c>false</c> / <c>true</c> if the data holds a boolean; otherwise <c>false</c></value>
         bool IJsonWrapper.IsBoolean
         {
             get { return IsBoolean; }
         }
 
+        /// <summary>
+        /// 获取一个值，指示当前 JSON 数据是否为双精度浮点类型。
+        /// </summary>
+        /// <remarks>
+        /// Gets a value indicating whether the current JSON data holds a double-precision floating-point number.
+        /// </remarks>
+        /// <value>如果为双精度浮点类型则返回 <c>true</c>；否则返回 <c>false</c> / <c>true</c> if the data holds a double; otherwise <c>false</c></value>
         bool IJsonWrapper.IsDouble
         {
             get { return IsDouble; }
         }
 
+        /// <summary>
+        /// 获取一个值，指示当前 JSON 数据是否为 32 位整数类型。
+        /// </summary>
+        /// <remarks>
+        /// Gets a value indicating whether the current JSON data holds a 32-bit integer.
+        /// </remarks>
+        /// <value>如果为 32 位整数类型则返回 <c>true</c>；否则返回 <c>false</c> / <c>true</c> if the data holds an int; otherwise <c>false</c></value>
         bool IJsonWrapper.IsInt
         {
             get { return IsInt; }
         }
 
+        /// <summary>
+        /// 获取一个值，指示当前 JSON 数据是否为 64 位长整数类型。
+        /// </summary>
+        /// <remarks>
+        /// Gets a value indicating whether the current JSON data holds a 64-bit long integer.
+        /// </remarks>
+        /// <value>如果为 64 位长整数类型则返回 <c>true</c>；否则返回 <c>false</c> / <c>true</c> if the data holds a long; otherwise <c>false</c></value>
         bool IJsonWrapper.IsLong
         {
             get { return IsLong; }
         }
 
+        /// <summary>
+        /// 获取一个值，指示当前 JSON 数据是否为对象类型。
+        /// </summary>
+        /// <remarks>
+        /// Gets a value indicating whether the current JSON data holds an object.
+        /// </remarks>
+        /// <value>如果为对象类型则返回 <c>true</c>；否则返回 <c>false</c> / <c>true</c> if the data holds an object; otherwise <c>false</c></value>
         bool IJsonWrapper.IsObject
         {
             get { return IsObject; }
         }
 
+        /// <summary>
+        /// 获取一个值，指示当前 JSON 数据是否为字符串类型。
+        /// </summary>
+        /// <remarks>
+        /// Gets a value indicating whether the current JSON data holds a string.
+        /// </remarks>
+        /// <value>如果为字符串类型则返回 <c>true</c>；否则返回 <c>false</c> / <c>true</c> if the data holds a string; otherwise <c>false</c></value>
         bool IJsonWrapper.IsString
         {
             get { return IsString; }
@@ -294,11 +392,25 @@ namespace GameFrameX.LitJSON.Runtime
 
         #region IList Properties
 
+        /// <summary>
+        /// 获取一个值，指示 <see cref="IList"/> 是否具有固定大小。
+        /// </summary>
+        /// <remarks>
+        /// Gets a value indicating whether the <see cref="IList"/> has a fixed size.
+        /// </remarks>
+        /// <value>如果具有固定大小则返回 <c>true</c>；否则返回 <c>false</c> / <c>true</c> if fixed size; otherwise <c>false</c></value>
         bool IList.IsFixedSize
         {
             get { return EnsureList().IsFixedSize; }
         }
 
+        /// <summary>
+        /// 获取一个值，指示 <see cref="IList"/> 是否只读。
+        /// </summary>
+        /// <remarks>
+        /// Gets a value indicating whether the <see cref="IList"/> is read-only.
+        /// </remarks>
+        /// <value>如果只读则返回 <c>true</c>；否则返回 <c>false</c> / <c>true</c> if read-only; otherwise <c>false</c></value>
         bool IList.IsReadOnly
         {
             get { return EnsureList().IsReadOnly; }
@@ -309,6 +421,15 @@ namespace GameFrameX.LitJSON.Runtime
 
         #region IDictionary Indexer
 
+        /// <summary>
+        /// 获取或设置指定键处的元素。
+        /// </summary>
+        /// <remarks>
+        /// Gets or sets the element with the specified key.
+        /// </remarks>
+        /// <param name="key">键对象，必须是 <see cref="String"/> 类型 / The key object; must be of type <see cref="String"/></param>
+        /// <value>与指定键关联的元素 / The element associated with the specified key</value>
+        /// <exception cref="ArgumentException">当 <paramref name="key"/> 不是字符串时抛出 / Thrown when <paramref name="key"/> is not a string</exception>
         object IDictionary.this[object key]
         {
             get { return EnsureDictionary()[key]; }
@@ -332,6 +453,14 @@ namespace GameFrameX.LitJSON.Runtime
 
         #region IOrderedDictionary Indexer
 
+        /// <summary>
+        /// 获取或设置指定索引处的元素。
+        /// </summary>
+        /// <remarks>
+        /// Gets or sets the element at the specified index.
+        /// </remarks>
+        /// <param name="idx">从零开始的索引 / The zero-based index</param>
+        /// <value>指定索引处的元素 / The element at the specified index</value>
         object IOrderedDictionary.this[int idx]
         {
             get
@@ -361,6 +490,14 @@ namespace GameFrameX.LitJSON.Runtime
 
         #region IList Indexer
 
+        /// <summary>
+        /// 获取或设置指定索引处的元素。
+        /// </summary>
+        /// <remarks>
+        /// Gets or sets the element at the specified index.
+        /// </remarks>
+        /// <param name="index">从零开始的索引 / The zero-based index</param>
+        /// <value>指定索引处的元素 / The element at the specified index</value>
         object IList.this[int index]
         {
             get { return EnsureList()[index]; }
@@ -780,6 +917,14 @@ namespace GameFrameX.LitJSON.Runtime
 
         #region ICollection Methods
 
+        /// <summary>
+        /// 从指定索引开始，将 <see cref="ICollection"/> 的元素复制到 <see cref="Array"/>。
+        /// </summary>
+        /// <remarks>
+        /// Copies the elements of the <see cref="ICollection"/> to an <see cref="Array"/>, starting at a particular index.
+        /// </remarks>
+        /// <param name="array">目标一维数组 / The one-dimensional destination array</param>
+        /// <param name="index">目标数组中开始复制的从零开始的索引 / The zero-based index in the array at which copying begins</param>
         void ICollection.CopyTo(Array array, int index)
         {
             EnsureCollection().CopyTo(array, index);
@@ -790,6 +935,14 @@ namespace GameFrameX.LitJSON.Runtime
 
         #region IDictionary Methods
 
+        /// <summary>
+        /// 在 <see cref="IDictionary"/> 中添加带有所提供键和值的元素。
+        /// </summary>
+        /// <remarks>
+        /// Adds an element with the provided key and value to the <see cref="IDictionary"/>.
+        /// </remarks>
+        /// <param name="key">作为要添加元素的键的对象（必须是字符串） / The object to use as the key of the element to add (must be a string)</param>
+        /// <param name="value">作为要添加元素的值的对象 / The object to use as the value of the element to add</param>
         void IDictionary.Add(object key, object value)
         {
             var data = ToJsonData(value);
@@ -803,6 +956,12 @@ namespace GameFrameX.LitJSON.Runtime
             json = null;
         }
 
+        /// <summary>
+        /// 从 <see cref="IDictionary"/> 中移除所有元素。
+        /// </summary>
+        /// <remarks>
+        /// Removes all elements from the <see cref="IDictionary"/>.
+        /// </remarks>
         void IDictionary.Clear()
         {
             EnsureDictionary().Clear();
@@ -810,16 +969,38 @@ namespace GameFrameX.LitJSON.Runtime
             json = null;
         }
 
+        /// <summary>
+        /// 确定 <see cref="IDictionary"/> 是否包含带有指定键的元素。
+        /// </summary>
+        /// <remarks>
+        /// Determines whether the <see cref="IDictionary"/> contains an element with the specified key.
+        /// </remarks>
+        /// <param name="key">要在 <see cref="IDictionary"/> 中定位的键 / The key to locate in the <see cref="IDictionary"/></param>
+        /// <returns>如果包含带指定键的元素则返回 <c>true</c>；否则返回 <c>false</c> / <c>true</c> if the element exists; otherwise <c>false</c></returns>
         bool IDictionary.Contains(object key)
         {
             return EnsureDictionary().Contains(key);
         }
 
+        /// <summary>
+        /// 返回 <see cref="IDictionary"/> 的 <see cref="IDictionaryEnumerator"/>。
+        /// </summary>
+        /// <remarks>
+        /// Returns an <see cref="IDictionaryEnumerator"/> for the <see cref="IDictionary"/>.
+        /// </remarks>
+        /// <returns>用于 <see cref="IDictionary"/> 的枚举器 / An enumerator for the <see cref="IDictionary"/></returns>
         IDictionaryEnumerator IDictionary.GetEnumerator()
         {
             return ((IOrderedDictionary)this).GetEnumerator();
         }
 
+        /// <summary>
+        /// 从 <see cref="IDictionary"/> 中移除带有指定键的元素。
+        /// </summary>
+        /// <remarks>
+        /// Removes the element with the specified key from the <see cref="IDictionary"/>.
+        /// </remarks>
+        /// <param name="key">要移除的元素的键 / The key of the element to remove</param>
         void IDictionary.Remove(object key)
         {
             EnsureDictionary().Remove(key);
@@ -841,6 +1022,13 @@ namespace GameFrameX.LitJSON.Runtime
 
         #region IEnumerable Methods
 
+        /// <summary>
+        /// 返回一个循环访问集合的枚举器。
+        /// </summary>
+        /// <remarks>
+        /// Returns an enumerator that iterates through the collection.
+        /// </remarks>
+        /// <returns>可用于循环访问集合的 <see cref="IEnumerator"/> / An <see cref="IEnumerator"/> that can be used to iterate through the collection</returns>
         IEnumerator IEnumerable.GetEnumerator()
         {
             return EnsureCollection().GetEnumerator();
@@ -851,6 +1039,14 @@ namespace GameFrameX.LitJSON.Runtime
 
         #region IJsonWrapper Methods
 
+        /// <summary>
+        /// 返回当前实例持有的布尔值。
+        /// </summary>
+        /// <remarks>
+        /// Returns the boolean value held by the current instance.
+        /// </remarks>
+        /// <returns>实例持有的布尔值 / The boolean value held by the instance</returns>
+        /// <exception cref="InvalidOperationException">当实例不持有布尔值时抛出 / Thrown when the instance does not hold a boolean</exception>
         bool IJsonWrapper.GetBoolean()
         {
             if (type != JsonType.Boolean)
@@ -862,6 +1058,14 @@ namespace GameFrameX.LitJSON.Runtime
             return inst_boolean;
         }
 
+        /// <summary>
+        /// 返回当前实例持有的双精度浮点数。
+        /// </summary>
+        /// <remarks>
+        /// Returns the double-precision floating-point number held by the current instance.
+        /// </remarks>
+        /// <returns>实例持有的双精度浮点数 / The double value held by the instance</returns>
+        /// <exception cref="InvalidOperationException">当实例不持有双精度浮点数时抛出 / Thrown when the instance does not hold a double</exception>
         double IJsonWrapper.GetDouble()
         {
             if (type != JsonType.Double)
@@ -873,6 +1077,14 @@ namespace GameFrameX.LitJSON.Runtime
             return inst_double;
         }
 
+        /// <summary>
+        /// 返回当前实例持有的 32 位整数。
+        /// </summary>
+        /// <remarks>
+        /// Returns the 32-bit integer held by the current instance.
+        /// </remarks>
+        /// <returns>实例持有的 32 位整数 / The int value held by the instance</returns>
+        /// <exception cref="InvalidOperationException">当实例不持有 32 位整数时抛出 / Thrown when the instance does not hold an int</exception>
         int IJsonWrapper.GetInt()
         {
             if (type != JsonType.Int)
@@ -884,6 +1096,14 @@ namespace GameFrameX.LitJSON.Runtime
             return inst_int;
         }
 
+        /// <summary>
+        /// 返回当前实例持有的 64 位长整数。
+        /// </summary>
+        /// <remarks>
+        /// Returns the 64-bit long integer held by the current instance.
+        /// </remarks>
+        /// <returns>实例持有的 64 位长整数 / The long value held by the instance</returns>
+        /// <exception cref="InvalidOperationException">当实例不持有 64 位长整数时抛出 / Thrown when the instance does not hold a long</exception>
         long IJsonWrapper.GetLong()
         {
             if (type != JsonType.Long)
@@ -895,6 +1115,14 @@ namespace GameFrameX.LitJSON.Runtime
             return inst_long;
         }
 
+        /// <summary>
+        /// 返回当前实例持有的字符串。
+        /// </summary>
+        /// <remarks>
+        /// Returns the string held by the current instance.
+        /// </remarks>
+        /// <returns>实例持有的字符串 / The string held by the instance</returns>
+        /// <exception cref="InvalidOperationException">当实例不持有字符串时抛出 / Thrown when the instance does not hold a string</exception>
         string IJsonWrapper.GetString()
         {
             if (type != JsonType.String)
@@ -906,6 +1134,13 @@ namespace GameFrameX.LitJSON.Runtime
             return inst_string;
         }
 
+        /// <summary>
+        /// 将当前实例设置为持有指定的布尔值。
+        /// </summary>
+        /// <remarks>
+        /// Sets the current instance to hold the specified boolean value.
+        /// </remarks>
+        /// <param name="val">要设置的布尔值 / The boolean value to set</param>
         void IJsonWrapper.SetBoolean(bool val)
         {
             type = JsonType.Boolean;
@@ -913,6 +1148,13 @@ namespace GameFrameX.LitJSON.Runtime
             json = null;
         }
 
+        /// <summary>
+        /// 将当前实例设置为持有指定的双精度浮点数。
+        /// </summary>
+        /// <remarks>
+        /// Sets the current instance to hold the specified double-precision floating-point number.
+        /// </remarks>
+        /// <param name="val">要设置的双精度浮点数 / The double value to set</param>
         void IJsonWrapper.SetDouble(double val)
         {
             type = JsonType.Double;
@@ -920,6 +1162,13 @@ namespace GameFrameX.LitJSON.Runtime
             json = null;
         }
 
+        /// <summary>
+        /// 将当前实例设置为持有指定的 32 位整数。
+        /// </summary>
+        /// <remarks>
+        /// Sets the current instance to hold the specified 32-bit integer.
+        /// </remarks>
+        /// <param name="val">要设置的 32 位整数 / The int value to set</param>
         void IJsonWrapper.SetInt(int val)
         {
             type = JsonType.Int;
@@ -927,6 +1176,13 @@ namespace GameFrameX.LitJSON.Runtime
             json = null;
         }
 
+        /// <summary>
+        /// 将当前实例设置为持有指定的 64 位长整数。
+        /// </summary>
+        /// <remarks>
+        /// Sets the current instance to hold the specified 64-bit long integer.
+        /// </remarks>
+        /// <param name="val">要设置的 64 位长整数 / The long value to set</param>
         void IJsonWrapper.SetLong(long val)
         {
             type = JsonType.Long;
@@ -934,6 +1190,13 @@ namespace GameFrameX.LitJSON.Runtime
             json = null;
         }
 
+        /// <summary>
+        /// 将当前实例设置为持有指定的字符串。
+        /// </summary>
+        /// <remarks>
+        /// Sets the current instance to hold the specified string.
+        /// </remarks>
+        /// <param name="val">要设置的字符串 / The string to set</param>
         void IJsonWrapper.SetString(string val)
         {
             type = JsonType.String;
@@ -941,11 +1204,25 @@ namespace GameFrameX.LitJSON.Runtime
             json = null;
         }
 
+        /// <summary>
+        /// 将当前实例序列化为 JSON 字符串。
+        /// </summary>
+        /// <remarks>
+        /// Serializes the current instance to a JSON string.
+        /// </remarks>
+        /// <returns>序列化后的 JSON 字符串 / The serialized JSON string</returns>
         string IJsonWrapper.ToJson()
         {
             return ToJson();
         }
 
+        /// <summary>
+        /// 将当前实例序列化到指定的 <see cref="JsonWriter"/>。
+        /// </summary>
+        /// <remarks>
+        /// Serializes the current instance to the specified <see cref="JsonWriter"/>.
+        /// </remarks>
+        /// <param name="writer">目标 <see cref="JsonWriter"/> / The target <see cref="JsonWriter"/></param>
         void IJsonWrapper.ToJson(JsonWriter writer)
         {
             ToJson(writer);
@@ -956,39 +1233,91 @@ namespace GameFrameX.LitJSON.Runtime
 
         #region IList Methods
 
+        /// <summary>
+        /// 将指定对象添加到 <see cref="IList"/> 中。
+        /// </summary>
+        /// <remarks>
+        /// Adds the specified object to the <see cref="IList"/>.
+        /// </remarks>
+        /// <param name="value">要添加到 <see cref="IList"/> 的对象 / The object to add to the <see cref="IList"/></param>
+        /// <returns>新元素插入位置的从零开始的索引 / The zero-based index at which the new element was inserted</returns>
         int IList.Add(object value)
         {
             return Add(value);
         }
 
+        /// <summary>
+        /// 从 <see cref="IList"/> 中移除所有项。
+        /// </summary>
+        /// <remarks>
+        /// Removes all items from the <see cref="IList"/>.
+        /// </remarks>
         void IList.Clear()
         {
             EnsureList().Clear();
             json = null;
         }
 
+        /// <summary>
+        /// 确定 <see cref="IList"/> 是否包含特定值。
+        /// </summary>
+        /// <remarks>
+        /// Determines whether the <see cref="IList"/> contains a specific value.
+        /// </remarks>
+        /// <param name="value">要在 <see cref="IList"/> 中定位的对象 / The object to locate in the <see cref="IList"/></param>
+        /// <returns>如果在 <see cref="IList"/> 中找到该项则返回 <c>true</c>；否则返回 <c>false</c> / <c>true</c> if found; otherwise <c>false</c></returns>
         bool IList.Contains(object value)
         {
             return EnsureList().Contains(value);
         }
 
+        /// <summary>
+        /// 确定 <see cref="IList"/> 中特定项的索引。
+        /// </summary>
+        /// <remarks>
+        /// Determines the index of a specific item in the <see cref="IList"/>.
+        /// </remarks>
+        /// <param name="value">要在 <see cref="IList"/> 中定位的对象 / The object to locate in the <see cref="IList"/></param>
+        /// <returns>如果在列表中找到则返回该项的索引；否则返回 -1 / The index of the item if found; otherwise -1</returns>
         int IList.IndexOf(object value)
         {
             return EnsureList().IndexOf(value);
         }
 
+        /// <summary>
+        /// 在指定索引处将一个项插入到 <see cref="IList"/> 中。
+        /// </summary>
+        /// <remarks>
+        /// Inserts an item to the <see cref="IList"/> at the specified index.
+        /// </remarks>
+        /// <param name="index">从零开始的插入索引 / The zero-based index at which to insert</param>
+        /// <param name="value">要插入到 <see cref="IList"/> 中的对象 / The object to insert into the <see cref="IList"/></param>
         void IList.Insert(int index, object value)
         {
             EnsureList().Insert(index, value);
             json = null;
         }
 
+        /// <summary>
+        /// 从 <see cref="IList"/> 中移除特定对象的第一个匹配项。
+        /// </summary>
+        /// <remarks>
+        /// Removes the first occurrence of a specific object from the <see cref="IList"/>.
+        /// </remarks>
+        /// <param name="value">要从 <see cref="IList"/> 中移除的对象 / The object to remove from the <see cref="IList"/></param>
         void IList.Remove(object value)
         {
             EnsureList().Remove(value);
             json = null;
         }
 
+        /// <summary>
+        /// 移除指定索引处的 <see cref="IList"/> 项。
+        /// </summary>
+        /// <remarks>
+        /// Removes the <see cref="IList"/> item at the specified index.
+        /// </remarks>
+        /// <param name="index">要移除项的从零开始的索引 / The zero-based index of the item to remove</param>
         void IList.RemoveAt(int index)
         {
             EnsureList().RemoveAt(index);
@@ -1000,6 +1329,13 @@ namespace GameFrameX.LitJSON.Runtime
 
         #region IOrderedDictionary Methods
 
+        /// <summary>
+        /// 返回一个循环访问 <see cref="IOrderedDictionary"/> 集合的 <see cref="IDictionaryEnumerator"/>。
+        /// </summary>
+        /// <remarks>
+        /// Returns an <see cref="IDictionaryEnumerator"/> that iterates through the <see cref="IOrderedDictionary"/> collection.
+        /// </remarks>
+        /// <returns>用于 <see cref="IOrderedDictionary"/> 集合的枚举器 / An enumerator for the <see cref="IOrderedDictionary"/> collection</returns>
         IDictionaryEnumerator IOrderedDictionary.GetEnumerator()
         {
             EnsureDictionary();
@@ -1008,6 +1344,15 @@ namespace GameFrameX.LitJSON.Runtime
                 object_list.GetEnumerator());
         }
 
+        /// <summary>
+        /// 在指定索引处将带有提供键和值的元素插入到 <see cref="IOrderedDictionary"/> 集合中。
+        /// </summary>
+        /// <remarks>
+        /// Inserts an element with the provided key and value into the <see cref="IOrderedDictionary"/> collection at the specified index.
+        /// </remarks>
+        /// <param name="idx">从零开始的插入索引 / The zero-based index at which to insert</param>
+        /// <param name="key">作为要添加元素的键的对象（必须是字符串） / The object to use as the key of the element to add (must be a string)</param>
+        /// <param name="value">作为要添加元素的值的对象 / The object to use as the value of the element to add</param>
         void IOrderedDictionary.Insert(int idx, object key, object value)
         {
             var property = (string)key;
@@ -1021,6 +1366,13 @@ namespace GameFrameX.LitJSON.Runtime
             object_list.Insert(idx, entry);
         }
 
+        /// <summary>
+        /// 移除指定索引处的 <see cref="IOrderedDictionary"/> 元素。
+        /// </summary>
+        /// <remarks>
+        /// Removes the <see cref="IOrderedDictionary"/> element at the specified index.
+        /// </remarks>
+        /// <param name="idx">要移除元素的从零开始的索引 / The zero-based index of the element to remove</param>
         void IOrderedDictionary.RemoveAt(int idx)
         {
             EnsureDictionary();
@@ -1527,16 +1879,37 @@ namespace GameFrameX.LitJSON.Runtime
     }
 
 
+    /// <summary>
+    /// 内部枚举器，包装 <see cref="IEnumerator{T}"/> 以提供 <see cref="IDictionaryEnumerator"/> 语义，按插入顺序遍历 <see cref="JsonData"/> 对象成员。
+    /// </summary>
+    /// <remarks>
+    /// Internal enumerator that wraps an <see cref="IEnumerator{T}"/> to provide <see cref="IDictionaryEnumerator"/> semantics,
+    /// used to iterate over the object members of a <see cref="JsonData"/> in insertion order.
+    /// </remarks>
     internal class OrderedDictionaryEnumerator : IDictionaryEnumerator
     {
         private IEnumerator<KeyValuePair<string, JsonData>> list_enumerator;
 
 
+        /// <summary>
+        /// 获取集合中当前位置的元素。
+        /// </summary>
+        /// <remarks>
+        /// Gets the current element in the collection.
+        /// </remarks>
+        /// <value>集合中当前位置的元素 / The current element in the collection</value>
         public object Current
         {
             get { return Entry; }
         }
 
+        /// <summary>
+        /// 获取当前位置的键和值，以 <see cref="DictionaryEntry"/> 结构形式返回。
+        /// </summary>
+        /// <remarks>
+        /// Gets both the key and the value of the current dictionary entry as a <see cref="DictionaryEntry"/> structure.
+        /// </remarks>
+        /// <value>当前字典条目 / The current dictionary entry</value>
         public DictionaryEntry Entry
         {
             get
@@ -1546,17 +1919,38 @@ namespace GameFrameX.LitJSON.Runtime
             }
         }
 
+        /// <summary>
+        /// 获取当前字典条目的键。
+        /// </summary>
+        /// <remarks>
+        /// Gets the key of the current dictionary entry.
+        /// </remarks>
+        /// <value>当前条目的键 / The key of the current entry</value>
         public object Key
         {
             get { return list_enumerator.Current.Key; }
         }
 
+        /// <summary>
+        /// 获取当前字典条目的值。
+        /// </summary>
+        /// <remarks>
+        /// Gets the value of the current dictionary entry.
+        /// </remarks>
+        /// <value>当前条目的值 / The value of the current entry</value>
         public object Value
         {
             get { return list_enumerator.Current.Value; }
         }
 
 
+        /// <summary>
+        /// 用指定的键值对枚举器初始化 <see cref="OrderedDictionaryEnumerator"/> 类的新实例。
+        /// </summary>
+        /// <remarks>
+        /// Initializes a new instance of the <see cref="OrderedDictionaryEnumerator"/> class with the specified key-value pair enumerator.
+        /// </remarks>
+        /// <param name="enumerator">要包装的键值对枚举器 / The key-value pair enumerator to wrap</param>
         public OrderedDictionaryEnumerator(
             IEnumerator<KeyValuePair<string, JsonData>> enumerator)
         {
@@ -1564,11 +1958,24 @@ namespace GameFrameX.LitJSON.Runtime
         }
 
 
+        /// <summary>
+        /// 将枚举器推进到集合的下一个元素。
+        /// </summary>
+        /// <remarks>
+        /// Advances the enumerator to the next element of the collection.
+        /// </remarks>
+        /// <returns>如果枚举器成功推进到下一个元素则返回 <c>true</c>；如果枚举器已越过集合末尾则返回 <c>false</c> / <c>true</c> if advanced; <c>false</c> if past the end</returns>
         public bool MoveNext()
         {
             return list_enumerator.MoveNext();
         }
 
+        /// <summary>
+        /// 将枚举器设置到其初始位置，即集合中第一个元素之前。
+        /// </summary>
+        /// <remarks>
+        /// Sets the enumerator to its initial position, which is before the first element in the collection.
+        /// </remarks>
         public void Reset()
         {
             list_enumerator.Reset();

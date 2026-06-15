@@ -21,14 +21,46 @@ using System.Reflection;
 
 namespace GameFrameX.LitJSON.Runtime
 {
+    /// <summary>
+    /// 描述类型的属性或字段的元数据，用于序列化与反序列化过程中。
+    /// </summary>
+    /// <remarks>
+    /// Describes the metadata of a property or field of a type, used during serialization and deserialization.
+    /// </remarks>
     internal struct PropertyMetadata
     {
+        /// <summary>
+        /// 成员信息（属性或字段）。
+        /// </summary>
+        /// <remarks>
+        /// The member info (property or field).
+        /// </remarks>
         public MemberInfo Info;
+
+        /// <summary>
+        /// 指示当前成员是否为字段；为 false 时表示属性。
+        /// </summary>
+        /// <remarks>
+        /// Indicates whether the current member is a field; false means it is a property.
+        /// </remarks>
         public bool IsField;
+
+        /// <summary>
+        /// 成员的类型。
+        /// </summary>
+        /// <remarks>
+        /// The type of the member.
+        /// </remarks>
         public Type Type;
     }
 
 
+    /// <summary>
+    /// 描述数组或列表类型在 JSON 反序列化过程中所需的元数据。
+    /// </summary>
+    /// <remarks>
+    /// Describes the metadata required during JSON deserialization for array or list types.
+    /// </remarks>
     internal struct ArrayMetadata
     {
         private Type element_type;
@@ -36,6 +68,12 @@ namespace GameFrameX.LitJSON.Runtime
         private bool is_list;
 
 
+        /// <summary>
+        /// 数组或列表的元素类型；未显式设置时返回 JsonData。
+        /// </summary>
+        /// <remarks>
+        /// The element type of the array or list; returns JsonData when not explicitly set.
+        /// </remarks>
         public Type ElementType
         {
             get
@@ -51,12 +89,24 @@ namespace GameFrameX.LitJSON.Runtime
             set { element_type = value; }
         }
 
+        /// <summary>
+        /// 指示当前类型是否为数组。
+        /// </summary>
+        /// <remarks>
+        /// Indicates whether the current type is an array.
+        /// </remarks>
         public bool IsArray
         {
             get { return is_array; }
             set { is_array = value; }
         }
 
+        /// <summary>
+        /// 指示当前类型是否实现 IList 接口。
+        /// </summary>
+        /// <remarks>
+        /// Indicates whether the current type implements the IList interface.
+        /// </remarks>
         public bool IsList
         {
             get { return is_list; }
@@ -65,6 +115,12 @@ namespace GameFrameX.LitJSON.Runtime
     }
 
 
+    /// <summary>
+    /// 描述对象类型（含字典）在 JSON 反序列化过程中所需的元数据。
+    /// </summary>
+    /// <remarks>
+    /// Describes the metadata required during JSON deserialization for object types (including dictionaries).
+    /// </remarks>
     internal struct ObjectMetadata
     {
         private Type element_type;
@@ -73,6 +129,12 @@ namespace GameFrameX.LitJSON.Runtime
         private IDictionary<string, PropertyMetadata> properties;
 
 
+        /// <summary>
+        /// 字典的值元素类型；未显式设置时返回 JsonData。
+        /// </summary>
+        /// <remarks>
+        /// The value element type of the dictionary; returns JsonData when not explicitly set.
+        /// </remarks>
         public Type ElementType
         {
             get
@@ -88,12 +150,24 @@ namespace GameFrameX.LitJSON.Runtime
             set { element_type = value; }
         }
 
+        /// <summary>
+        /// 指示当前类型是否实现 IDictionary 接口。
+        /// </summary>
+        /// <remarks>
+        /// Indicates whether the current type implements the IDictionary interface.
+        /// </remarks>
         public bool IsDictionary
         {
             get { return is_dictionary; }
             set { is_dictionary = value; }
         }
 
+        /// <summary>
+        /// 当前类型的属性与字段元数据集合，按名称索引。
+        /// </summary>
+        /// <remarks>
+        /// The collection of property and field metadata for the current type, indexed by name.
+        /// </remarks>
         public IDictionary<string, PropertyMetadata> Properties
         {
             get { return properties; }
@@ -102,6 +176,14 @@ namespace GameFrameX.LitJSON.Runtime
     }
 
 
+    /// <summary>
+    /// 将对象导出为 JSON 的非泛型委托，由内部导出器表使用。
+    /// </summary>
+    /// <remarks>
+    /// Non-generic delegate that exports an object to JSON, used by the internal exporter tables.
+    /// </remarks>
+    /// <param name="obj">要导出的对象 / The object to export</param>
+    /// <param name="writer">用于写入 JSON 数据的写入器 / The writer used to write JSON data</param>
     internal delegate void ExporterFunc(object obj, JsonWriter writer);
 
     /// <summary>
@@ -115,6 +197,14 @@ namespace GameFrameX.LitJSON.Runtime
     /// <param name="writer">用于写入 JSON 数据的写入器 / The writer used to write JSON data</param>
     public delegate void ExporterFunc<T>(T obj, JsonWriter writer);
 
+    /// <summary>
+    /// 将 JSON 输入值转换为指定目标类型的非泛型委托，由内部导入器表使用。
+    /// </summary>
+    /// <remarks>
+    /// Non-generic delegate that converts a JSON input value to the specified target type, used by the internal importer tables.
+    /// </remarks>
+    /// <param name="input">要转换的 JSON 输入值 / The JSON input value to convert</param>
+    /// <returns>转换后的目标值 / The converted target value</returns>
     internal delegate object ImporterFunc(object input);
 
     /// <summary>

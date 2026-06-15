@@ -19,15 +19,58 @@ using System.Text;
 
 namespace GameFrameX.LitJSON.Runtime
 {
+    /// <summary>
+    /// 表示有限状态机的上下文，在词法分析过程中传递状态信息。
+    /// </summary>
+    /// <remarks>
+    /// Represents the context of the finite state machine, carrying state
+    /// information during lexical analysis.
+    /// </remarks>
     internal class FsmContext
     {
+        /// <summary>
+        /// 获取或设置一个值，指示当前状态处理结束后是否应返回词法单元。
+        /// </summary>
+        /// <remarks>
+        /// Gets or sets a value indicating whether a token should be returned
+        /// after the current state has been processed.
+        /// </remarks>
         public bool Return;
+
+        /// <summary>
+        /// 获取或设置有限状态机的下一个状态索引。
+        /// </summary>
+        /// <remarks>
+        /// Gets or sets the next state index of the finite state machine.
+        /// </remarks>
         public int NextState;
+
+        /// <summary>
+        /// 获取与之关联的词法分析器实例。
+        /// </summary>
+        /// <remarks>
+        /// Gets the associated lexer instance.
+        /// </remarks>
         public Lexer L;
+
+        /// <summary>
+        /// 获取或设置保存的状态堆栈值，用于转义序列处理后的状态恢复。
+        /// </summary>
+        /// <remarks>
+        /// Gets or sets the saved state stack value used to restore state after
+        /// escape sequence processing.
+        /// </remarks>
         public int StateStack;
     }
 
 
+    /// <summary>
+    /// 基于有限状态机的 JSON 词法分析器，将 JSON 文本切分为词法单元（Token）流。
+    /// </summary>
+    /// <remarks>
+    /// JSON lexer implementation based on a finite state machine. Splits JSON
+    /// text into a stream of tokens.
+    /// </remarks>
     internal class Lexer
     {
         #region Fields
@@ -55,33 +98,66 @@ namespace GameFrameX.LitJSON.Runtime
 
         #region Properties
 
-        /// <summary>获取或设置是否允许注释。/ Gets or sets whether comments are allowed.</summary>
+        /// <summary>
+        /// 获取或设置一个值，指示词法分析器是否允许在 JSON 输入中出现注释。
+        /// </summary>
+        /// <remarks>
+        /// Gets or sets a value indicating whether comments are allowed in the
+        /// JSON input.
+        /// </remarks>
+        /// <value>如果允许注释，则为 <c>true</c>；否则为 <c>false</c>。/ <c>true</c> if comments are allowed; otherwise, <c>false</c>.</value>
         public bool AllowComments
         {
             get { return allow_comments; }
             set { allow_comments = value; }
         }
 
-        /// <summary>获取或设置是否允许单引号字符串。/ Gets or sets whether single-quoted strings are allowed.</summary>
+        /// <summary>
+        /// 获取或设置一个值，指示词法分析器是否允许使用单引号包裹的字符串。
+        /// </summary>
+        /// <remarks>
+        /// Gets or sets a value indicating whether single-quoted strings are
+        /// allowed.
+        /// </remarks>
+        /// <value>如果允许单引号字符串，则为 <c>true</c>；否则为 <c>false</c>。/ <c>true</c> if single-quoted strings are allowed; otherwise, <c>false</c>.</value>
         public bool AllowSingleQuotedStrings
         {
             get { return allow_single_quoted_strings; }
             set { allow_single_quoted_strings = value; }
         }
 
-        /// <summary>获取是否已到达输入末尾。/ Gets a value indicating whether the end of the input has been reached.</summary>
+        /// <summary>
+        /// 获取一个值，指示是否已到达输入的末尾。
+        /// </summary>
+        /// <remarks>
+        /// Gets a value indicating whether the end of the input has been
+        /// reached.
+        /// </remarks>
+        /// <value>如果已到达输入末尾，则为 <c>true</c>；否则为 <c>false</c>。/ <c>true</c> if the end of the input has been reached; otherwise, <c>false</c>.</value>
         public bool EndOfInput
         {
             get { return end_of_input; }
         }
 
-        /// <summary>获取当前词法单元（以整数形式表示）。/ Gets the current token, represented as an integer.</summary>
+        /// <summary>
+        /// 获取当前词法单元（以整数形式表示）。
+        /// </summary>
+        /// <remarks>
+        /// Gets the current token, represented as an integer.
+        /// </remarks>
+        /// <value>当前词法单元的整数标识，对应 <see cref="ParserToken" /> 中的值或单字符码。/ The integer identifier of the current token, corresponding to a value in <see cref="ParserToken" /> or a single character code.</value>
         public int Token
         {
             get { return token; }
         }
 
-        /// <summary>获取当前词法单元对应的字符串值。/ Gets the string value associated with the current token.</summary>
+        /// <summary>
+        /// 获取当前词法单元对应的字符串值。
+        /// </summary>
+        /// <remarks>
+        /// Gets the string value associated with the current token.
+        /// </remarks>
+        /// <value>当前词法单元的字符串内容。/ The string content of the current token.</value>
         public string StringValue
         {
             get { return string_value; }
@@ -97,6 +173,14 @@ namespace GameFrameX.LitJSON.Runtime
             PopulateFsmTables(out fsm_handler_table, out fsm_return_table);
         }
 
+        /// <summary>
+        /// 初始化 <see cref="Lexer" /> 类的新实例，从指定的文本读取器读取 JSON 输入。
+        /// </summary>
+        /// <remarks>
+        /// Initializes a new instance of the <see cref="Lexer" /> class that
+        /// reads JSON input from the specified text reader.
+        /// </remarks>
+        /// <param name="reader">提供 JSON 输入的文本读取器。 / The text reader that provides the JSON input.</param>
         public Lexer(TextReader reader)
         {
             allow_comments = true;
@@ -957,12 +1041,13 @@ namespace GameFrameX.LitJSON.Runtime
         }
 
         /// <summary>
-        /// 读取下一个词法单元。
+        /// 使用有限状态机读取下一个词法单元。
         /// </summary>
         /// <remarks>
         /// Reads the next token from the input using the finite state machine.
         /// </remarks>
-        /// <returns>如果成功读取下一个词法单元，则为 <c>true</c>；否则为 <c>false</c>。/ <c>true</c> if the next token was read successfully; otherwise, <c>false</c>.</returns>
+        /// <returns>如果成功读取下一个词法单元，则为 <c>true</c>；如果到达输入末尾，则为 <c>false</c>。 / <c>true</c> if the next token was read successfully; <c>false</c> if the end of the input was reached.</returns>
+        /// <exception cref="JsonException">输入包含不符合 JSON 语法的字符或序列。 / The input contains a character or sequence that is not valid JSON syntax.</exception>
         public bool NextToken()
         {
             StateHandler handler;

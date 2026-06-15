@@ -149,6 +149,13 @@ namespace GameFrameX.LitJSON.Runtime
             number_format = NumberFormatInfo.InvariantInfo;
         }
 
+        /// <summary>
+        /// 初始化 <see cref="JsonWriter"/> 类的新实例，使用内部 <see cref="StringBuilder"/> 作为输出目标。
+        /// </summary>
+        /// <remarks>
+        /// Initializes a new instance of the <see cref="JsonWriter"/> class using an internal
+        /// <see cref="StringBuilder"/> as the output target.
+        /// </remarks>
         public JsonWriter()
         {
             inst_string_builder = new StringBuilder();
@@ -157,11 +164,28 @@ namespace GameFrameX.LitJSON.Runtime
             Init();
         }
 
+        /// <summary>
+        /// 初始化 <see cref="JsonWriter"/> 类的新实例，写入到指定的 <see cref="StringBuilder"/>。
+        /// </summary>
+        /// <remarks>
+        /// Initializes a new instance of the <see cref="JsonWriter"/> class that writes to the
+        /// specified <see cref="StringBuilder"/>.
+        /// </remarks>
+        /// <param name="sb">接收 JSON 输出的 <see cref="StringBuilder"/> / The <see cref="StringBuilder"/> that receives the JSON output</param>
         public JsonWriter(StringBuilder sb) :
             this(new StringWriter(sb))
         {
         }
 
+        /// <summary>
+        /// 初始化 <see cref="JsonWriter"/> 类的新实例，写入到指定的 <see cref="TextWriter"/>。
+        /// </summary>
+        /// <remarks>
+        /// Initializes a new instance of the <see cref="JsonWriter"/> class that writes to the
+        /// specified <see cref="TextWriter"/>.
+        /// </remarks>
+        /// <param name="writer">接收 JSON 输出的 <see cref="TextWriter"/> / The <see cref="TextWriter"/> that receives the JSON output</param>
+        /// <exception cref="ArgumentNullException"><paramref name="writer"/> 为 <c>null</c> / <paramref name="writer"/> is <c>null</c></exception>
         public JsonWriter(TextWriter writer)
         {
             if (writer == null)
