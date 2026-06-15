@@ -46,7 +46,7 @@ Unity용 개선된 LitJson 라이브러리로, [XINCGer/LitJson4Unity](https://g
        }
      ],
      "dependencies": {
-       "com.gameframex.unity.xincger.litjson": "1.1.2"
+       "com.gameframex.unity.xincger.litjson": "1.1.3"
      }
    }
    ```
@@ -61,34 +61,6 @@ Unity용 개선된 LitJson 라이브러리로, [XINCGer/LitJson4Unity](https://g
    ```
 3. Unity의 **Package Manager**에서 **Git URL**을 사용하여 추가: `https://github.com/gameframex/com.gameframex.unity.xincger.litjson.git`
 4. 리포지토리를 Unity 프로젝트의 `Packages` 디렉토리에 클론하세요. 자동으로 로드됩니다.
-
-Unity 프로젝트의 `Packages/manifest.json`을 편집하여 `scopedRegistries` 섹션을 추가하세요:
-
-```json
-{
-  "scopedRegistries": [
-    {
-      "name": "GameFrameX",
-      "url": "https://gameframex.upm.alianblank.uk",
-      "scopes": [
-        "com.gameframex"
-      ]
-    }
-  ]
-}
-```
-
-그런 다음 `dependencies`에 이 패키지를 추가하세요:
-
-```json
-{
-  "dependencies": {
-    "com.gameframex.unity.xincger.litjson": "1.1.1"
-  }
-}
-```
-
-`scopes`는 이 레지스트리를 통해 어떤 패키지를 해석할지 제어합니다. `com.gameframex`로 시작하는 패키지만 이 레지스트리에서 가져옵니다.
 
 ## 수정 사항
 

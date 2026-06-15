@@ -46,7 +46,7 @@ Unity 向けの改良版 LitJson ライブラリ。[XINCGer/LitJson4Unity](https
        }
      ],
      "dependencies": {
-       "com.gameframex.unity.xincger.litjson": "1.1.2"
+       "com.gameframex.unity.xincger.litjson": "1.1.3"
      }
    }
    ```
@@ -61,34 +61,6 @@ Unity 向けの改良版 LitJson ライブラリ。[XINCGer/LitJson4Unity](https
    ```
 3. Unity の **Package Manager** で **Git URL** を使用して追加：`https://github.com/gameframex/com.gameframex.unity.xincger.litjson.git`
 4. リポジトリを Unity プロジェクトの `Packages` ディレクトリにクローンしてください。自動的に読み込まれます。
-
-Unity プロジェクトの `Packages/manifest.json` を編集し、`scopedRegistries` セクションを追加してください：
-
-```json
-{
-  "scopedRegistries": [
-    {
-      "name": "GameFrameX",
-      "url": "https://gameframex.upm.alianblank.uk",
-      "scopes": [
-        "com.gameframex"
-      ]
-    }
-  ]
-}
-```
-
-次に `dependencies` にこのパッケージを追加してください：
-
-```json
-{
-  "dependencies": {
-    "com.gameframex.unity.xincger.litjson": "1.1.1"
-  }
-}
-```
-
-`scopes` は、どのパッケージをこのレジストリから解決するかを制御します。`com.gameframex` で始まるパッケージのみがこのレジストリから取得されます。
 
 ## 変更点
 
