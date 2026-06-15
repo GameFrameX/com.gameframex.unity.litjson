@@ -28,6 +28,7 @@ namespace GameFrameX.LitJSON.Runtime
             _ = typeof(ExporterFunc);
             _ = typeof(ExporterFunc<>);
             _ = typeof(JsonIgnoreAttribute);
+            _ = typeof(JsonPropertyAttribute);
             _ = typeof(FsmContext);
             _ = typeof(IJsonWrapper);
             _ = typeof(ImporterFunc);

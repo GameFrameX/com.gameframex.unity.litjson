@@ -404,7 +404,7 @@ namespace GameFrameX.LitJSON.Runtime
                 p_data.Info = p_info;
                 p_data.Type = p_info.PropertyType;
 
-                data.Properties.Add(p_info.Name, p_data);
+                data.Properties.Add(GetJsonPropertyName(p_info), p_data);
             }
 
             foreach (var f_info in type.GetFields())
@@ -419,7 +419,7 @@ namespace GameFrameX.LitJSON.Runtime
                 p_data.IsField = true;
                 p_data.Type = f_info.FieldType;
 
-                data.Properties.Add(f_info.Name, p_data);
+                data.Properties.Add(GetJsonPropertyName(f_info), p_data);
             }
 
             lock (object_metadata_lock)
@@ -510,6 +510,18 @@ namespace GameFrameX.LitJSON.Runtime
             }
 
             return op;
+        }
+
+        private static string GetJsonPropertyName(MemberInfo info)
+        {
+            var attributes = info.GetCustomAttributes(typeof(JsonPropertyAttribute), true);
+            if (attributes.Length == 0)
+            {
+                return info.Name;
+            }
+
+            var attribute = (JsonPropertyAttribute)attributes[0];
+            return string.IsNullOrEmpty(attribute.PropertyName) ? info.Name : attribute.PropertyName;
         }
 
         private static object ReadValue(Type inst_type, JsonReader reader)
@@ -1124,7 +1136,7 @@ namespace GameFrameX.LitJSON.Runtime
 
                 if (p_data.IsField)
                 {
-                    writer.WritePropertyName(p_data.Info.Name);
+                    writer.WritePropertyName(GetJsonPropertyName(p_data.Info));
                     WriteValue(((FieldInfo)p_data.Info).GetValue(obj),
                                writer, writer_is_private, depth + 1);
                 }
@@ -1134,7 +1146,7 @@ namespace GameFrameX.LitJSON.Runtime
 
                     if (p_info.CanRead)
                     {
-                        writer.WritePropertyName(p_data.Info.Name);
+                        writer.WritePropertyName(GetJsonPropertyName(p_data.Info));
                         WriteValue(p_info.GetValue(obj, null),
                                    writer, writer_is_private, depth + 1);
                     }
