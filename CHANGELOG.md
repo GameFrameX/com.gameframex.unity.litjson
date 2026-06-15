@@ -1,3 +1,12 @@
+# [1.2.0](https://github.com/gameframex/com.gameframex.unity.litjson/compare/1.1.3...1.2.0) (2026-06-15)
+
+
+### Features
+
+* **runtime:** 批量添加 [Preserve] 防裁剪标签 ([9fe0183](https://github.com/gameframex/com.gameframex.unity.litjson/commit/9fe018398c21b66a8bf4efb0f08160de595c700a))
+* **runtime:** 新增 JsonIgnoreAttribute 并重命名命名空间 ([13ccea0](https://github.com/gameframex/com.gameframex.unity.litjson/commit/13ccea0f5a311d935c50fcc94e6ba36c5ec0fa53))
+* **runtime:** 新增 JsonPropertyAttribute 支持自定义属性名 ([fa44547](https://github.com/gameframex/com.gameframex.unity.litjson/commit/fa445478468ef69ef0b61ee722621aba653df4b6))
+
 # 1.0.0 (2026-06-15)
 
 
