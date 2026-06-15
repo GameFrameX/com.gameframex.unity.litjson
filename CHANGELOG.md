@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/gameframex/com.gameframex.unity.litjson/compare/1.2.0...1.2.1) (2026-06-15)
+
+
+### Bug Fixes
+
+* **runtime:** 默认关闭 ToJson 美化输出 ([e685f34](https://github.com/gameframex/com.gameframex.unity.litjson/commit/e685f34dedd1fab5323820dfdfcee778a257f2c5))
+
 # [1.2.0](https://github.com/gameframex/com.gameframex.unity.litjson/compare/1.1.3...1.2.0) (2026-06-15)
 
 
