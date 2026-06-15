@@ -1171,7 +1171,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// <returns>序列化后的 JSON 字符串 / The serialized JSON string</returns>
         /// <exception cref="InvalidOperationException">在导出器或 ToString() 内部递归调用本方法时抛出 / Thrown when this method is called recursively from within an exporter or ToString()</exception>
         [Preserve]
-        public static string ToJson(object obj, bool prettyPrint = true)
+        public static string ToJson(object obj, bool prettyPrint = false)
         {
             lock (static_writer_lock)
             {
