@@ -15,6 +15,7 @@
 using System;
 using System.Collections;
 using System.Collections.Specialized;
+using UnityEngine.Scripting;
 
 
 namespace GameFrameX.LitJSON.Runtime
@@ -35,6 +36,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// </summary>
         /// <remarks>Gets whether this mock holds an array; always returns false.</remarks>
         /// <value>始终为 false / Always false.</value>
+        [Preserve]
         public bool IsArray
         {
             get { return false; }
@@ -45,6 +47,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// </summary>
         /// <remarks>Gets whether this mock holds a boolean; always returns false.</remarks>
         /// <value>始终为 false / Always false.</value>
+        [Preserve]
         public bool IsBoolean
         {
             get { return false; }
@@ -55,6 +58,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// </summary>
         /// <remarks>Gets whether this mock holds a double; always returns false.</remarks>
         /// <value>始终为 false / Always false.</value>
+        [Preserve]
         public bool IsDouble
         {
             get { return false; }
@@ -65,6 +69,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// </summary>
         /// <remarks>Gets whether this mock holds an int; always returns false.</remarks>
         /// <value>始终为 false / Always false.</value>
+        [Preserve]
         public bool IsInt
         {
             get { return false; }
@@ -75,6 +80,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// </summary>
         /// <remarks>Gets whether this mock holds a long; always returns false.</remarks>
         /// <value>始终为 false / Always false.</value>
+        [Preserve]
         public bool IsLong
         {
             get { return false; }
@@ -85,6 +91,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// </summary>
         /// <remarks>Gets whether this mock holds an object; always returns false.</remarks>
         /// <value>始终为 false / Always false.</value>
+        [Preserve]
         public bool IsObject
         {
             get { return false; }
@@ -95,6 +102,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// </summary>
         /// <remarks>Gets whether this mock holds a string; always returns false.</remarks>
         /// <value>始终为 false / Always false.</value>
+        [Preserve]
         public bool IsString
         {
             get { return false; }
@@ -105,6 +113,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// </summary>
         /// <remarks>Gets the boolean value of this mock; always returns false.</remarks>
         /// <returns>始终为 false / Always false.</returns>
+        [Preserve]
         public bool GetBoolean()
         {
             return false;
@@ -115,6 +124,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// </summary>
         /// <remarks>Gets the double value of this mock; always returns 0.0.</remarks>
         /// <returns>始终为 0.0 / Always 0.0.</returns>
+        [Preserve]
         public double GetDouble()
         {
             return 0.0;
@@ -125,6 +135,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// </summary>
         /// <remarks>Gets the int value of this mock; always returns 0.</remarks>
         /// <returns>始终为 0 / Always 0.</returns>
+        [Preserve]
         public int GetInt()
         {
             return 0;
@@ -135,6 +146,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// </summary>
         /// <remarks>Gets the JSON data type of this mock; always returns JsonType.None.</remarks>
         /// <returns>始终为 JsonType.None / Always JsonType.None.</returns>
+        [Preserve]
         public JsonType GetJsonType()
         {
             return JsonType.None;
@@ -145,6 +157,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// </summary>
         /// <remarks>Gets the long value of this mock; always returns 0L.</remarks>
         /// <returns>始终为 0L / Always 0L.</returns>
+        [Preserve]
         public long GetLong()
         {
             return 0L;
@@ -155,6 +168,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// </summary>
         /// <remarks>Gets the string value of this mock; always returns an empty string.</remarks>
         /// <returns>始终为空字符串 / Always an empty string.</returns>
+        [Preserve]
         public string GetString()
         {
             return "";
@@ -165,6 +179,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// </summary>
         /// <remarks>Sets the boolean value of this mock; no-op stub.</remarks>
         /// <param name="val">要设置的布尔值（被忽略）/ The boolean value to set (ignored).</param>
+        [Preserve]
         public void SetBoolean(bool val)
         {
         }
@@ -174,6 +189,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// </summary>
         /// <remarks>Sets the double value of this mock; no-op stub.</remarks>
         /// <param name="val">要设置的双精度浮点数（被忽略）/ The double value to set (ignored).</param>
+        [Preserve]
         public void SetDouble(double val)
         {
         }
@@ -183,6 +199,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// </summary>
         /// <remarks>Sets the int value of this mock; no-op stub.</remarks>
         /// <param name="val">要设置的 32 位整数（被忽略）/ The int value to set (ignored).</param>
+        [Preserve]
         public void SetInt(int val)
         {
         }
@@ -192,6 +209,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// </summary>
         /// <remarks>Sets the JSON data type of this mock; no-op stub.</remarks>
         /// <param name="type">要设置的 JSON 数据类型（被忽略）/ The JSON data type to set (ignored).</param>
+        [Preserve]
         public void SetJsonType(JsonType type)
         {
         }
@@ -201,6 +219,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// </summary>
         /// <remarks>Sets the long value of this mock; no-op stub.</remarks>
         /// <param name="val">要设置的 64 位长整数（被忽略）/ The long value to set (ignored).</param>
+        [Preserve]
         public void SetLong(long val)
         {
         }
@@ -210,6 +229,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// </summary>
         /// <remarks>Sets the string value of this mock; no-op stub.</remarks>
         /// <param name="val">要设置的字符串（被忽略）/ The string value to set (ignored).</param>
+        [Preserve]
         public void SetString(string val)
         {
         }
@@ -219,6 +239,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// </summary>
         /// <remarks>Serializes this mock into a JSON string; always returns an empty string.</remarks>
         /// <returns>始终为空字符串 / Always an empty string.</returns>
+        [Preserve]
         public string ToJson()
         {
             return "";
@@ -229,6 +250,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// </summary>
         /// <remarks>Serializes this mock into the specified JsonWriter; no-op stub.</remarks>
         /// <param name="writer">接收序列化结果的 JsonWriter（被忽略）/ The JsonWriter that receives the serialization result (ignored).</param>
+        [Preserve]
         public void ToJson(JsonWriter writer)
         {
         }
