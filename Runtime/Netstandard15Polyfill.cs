@@ -1,7 +1,7 @@
 #if NETSTANDARD1_5
 using System;
 using System.Reflection;
-namespace LitJson
+namespace GameFrameX.LitJSON.Runtime
 {
     internal static class Netstandard15Polyfill
     {

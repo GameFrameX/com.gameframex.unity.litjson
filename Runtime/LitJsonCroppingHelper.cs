@@ -1,39 +1,53 @@
 ﻿using UnityEngine.Scripting;
 
-namespace LitJson
+namespace GameFrameX.LitJSON.Runtime
 {
+    /// <summary>
+    /// 防止 Unity IL2CPP 构建裁剪 LitJson 类型的辅助脚本。
+    /// </summary>
+    /// <remarks>
+    /// Helper MonoBehaviour that prevents the Unity IL2CPP build pipeline from stripping LitJson types.
+    /// Works together with link.xml as a double safeguard against managed code stripping.
+    /// </remarks>
     [Preserve]
     public class LitJsonCroppingHelper : UnityEngine.MonoBehaviour
     {
+        /// <summary>
+        /// Unity 生命周期方法，在启动时引用所有 LitJson 类型以防止被裁剪。
+        /// </summary>
+        /// <remarks>
+        /// Unity lifecycle method invoked on startup. References every public LitJson type via <c>typeof()</c>
+        /// so the IL2CPP linker retains them. The <c>[Preserve]</c> attribute and the <c>_ = typeof(...)</c>
+        /// statements (C# 7.0 discard syntax) form a redundant anti-stripping mechanism alongside link.xml.
+        /// </remarks>
         [Preserve]
         public void Start()
         {
-            _ = typeof(LitJson.ArrayMetadata);
-            _ = typeof(LitJson.Condition);
-            _ = typeof(LitJson.ExporterFunc);
-            _ = typeof(LitJson.ExporterFunc<>);
-            _ = typeof(LitJson.Extensions.Extensions);
-            _ = typeof(LitJson.Extensions.JsonIgnore);
-            _ = typeof(LitJson.FsmContext);
-            _ = typeof(LitJson.IJsonWrapper);
-            _ = typeof(LitJson.ImporterFunc);
-            _ = typeof(LitJson.ImporterFunc<,>);
-            _ = typeof(LitJson.JsonData);
-            _ = typeof(LitJson.JsonException);
-            _ = typeof(LitJson.JsonMapper);
-            _ = typeof(LitJson.JsonMockWrapper);
-            _ = typeof(LitJson.JsonReader);
-            _ = typeof(LitJson.JsonToken);
-            _ = typeof(LitJson.JsonType);
-            _ = typeof(LitJson.JsonWriter);
-            _ = typeof(LitJson.Lexer);
-            _ = typeof(LitJson.ObjectMetadata);
-            _ = typeof(LitJson.OrderedDictionaryEnumerator);
-            _ = typeof(LitJson.ParserToken);
-            _ = typeof(LitJson.PropertyMetadata);
-            _ = typeof(LitJson.UnityTypeBindings);
-            _ = typeof(LitJson.WrapperFactory);
-            _ = typeof(LitJson.WriterContext);
+            _ = typeof(ArrayMetadata);
+            _ = typeof(Condition);
+            _ = typeof(ExporterFunc);
+            _ = typeof(ExporterFunc<>);
+            _ = typeof(JsonIgnoreAttribute);
+            _ = typeof(FsmContext);
+            _ = typeof(IJsonWrapper);
+            _ = typeof(ImporterFunc);
+            _ = typeof(ImporterFunc<,>);
+            _ = typeof(JsonData);
+            _ = typeof(JsonException);
+            _ = typeof(JsonMapper);
+            _ = typeof(JsonMockWrapper);
+            _ = typeof(JsonReader);
+            _ = typeof(JsonToken);
+            _ = typeof(JsonType);
+            _ = typeof(JsonWriter);
+            _ = typeof(Lexer);
+            _ = typeof(ObjectMetadata);
+            _ = typeof(OrderedDictionaryEnumerator);
+            _ = typeof(ParserToken);
+            _ = typeof(PropertyMetadata);
+            _ = typeof(UnityTypeBindings);
+            _ = typeof(WrapperFactory);
+            _ = typeof(WriterContext);
         }
     }
 }

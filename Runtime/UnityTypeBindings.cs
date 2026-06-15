@@ -2,44 +2,47 @@
 using System;
 using System.Collections;
 
-using LitJson.Extensions;
-
-namespace LitJson
+namespace GameFrameX.LitJSON.Runtime
 {
-
 #if UNITY_EDITOR
     [UnityEditor.InitializeOnLoad]
 #endif
     /// <summary>
-    /// Unity内建类型拓展
+    /// 注册 Unity 内建类型与 JSON 之间的双向转换器。
     /// </summary>
+    /// <remarks>
+    /// Registers bidirectional converters between Unity built-in types and JSON.
+    /// </remarks>
     public static class UnityTypeBindings
     {
-
-        static volatile bool _registered;
+        private static volatile bool _registered;
 
         static UnityTypeBindings()
         {
             Register();
         }
 
+        /// <summary>
+        /// 执行所有 Unity 内建类型的注册（Type、Vector2、Vector3、Vector4、Quaternion、Color、Color32、Bounds、Rect、RectOffset）。
+        /// </summary>
+        /// <remarks>
+        /// Registers exporters and importers for all Unity built-in types (Type, Vector2, Vector3, Vector4, Quaternion, Color, Color32, Bounds, Rect, RectOffset).
+        /// This method is idempotent: the <c>_registered</c> flag ensures registration runs only once, and it is invoked automatically by the static constructor.
+        /// </remarks>
         public static void Register()
         {
+            if (_registered)
+            {
+                return;
+            }
 
-            if (_registered) return;
             _registered = true;
 
 
             // 注册Type类型的Exporter
-            JsonMapper.RegisterExporter<Type>((v, w) =>
-            {
-                w.Write(v.FullName);
-            });
+            JsonMapper.RegisterExporter<Type>((v, w) => { w.Write(v.FullName); });
 
-            JsonMapper.RegisterImporter<string, Type>((s) =>
-            {
-                return Type.GetType(s);
-            });
+            JsonMapper.RegisterImporter<string, Type>((s) => { return Type.GetType(s); });
 
             // 注册Vector2类型的Exporter
             Action<Vector2, JsonWriter> writeVector2 = (v, w) =>
@@ -50,10 +53,7 @@ namespace LitJson
                 w.WriteObjectEnd();
             };
 
-            JsonMapper.RegisterExporter<Vector2>((v, w) =>
-            {
-                writeVector2(v, w);
-            });
+            JsonMapper.RegisterExporter<Vector2>((v, w) => { writeVector2(v, w); });
 
             // 注册Vector3类型的Exporter
             Action<Vector3, JsonWriter> writeVector3 = (v, w) =>
@@ -65,10 +65,7 @@ namespace LitJson
                 w.WriteObjectEnd();
             };
 
-            JsonMapper.RegisterExporter<Vector3>((v, w) =>
-            {
-                writeVector3(v, w);
-            });
+            JsonMapper.RegisterExporter<Vector3>((v, w) => { writeVector3(v, w); });
 
             // 注册Vector4类型的Exporter
             JsonMapper.RegisterExporter<Vector4>((v, w) =>
@@ -149,8 +146,6 @@ namespace LitJson
                 w.WriteProperty("right", v.right);
                 w.WriteObjectEnd();
             });
-
         }
-
     }
 }
