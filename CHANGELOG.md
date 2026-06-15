@@ -1,3 +1,7 @@
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
 ## [1.1.3](https://github.com/gameframex/com.gameframex.unity.xincger.litjson/compare/1.1.2...1.1.3) (2026-06-07)
 
 
@@ -36,9 +40,7 @@
 
 ### Features
 
-* **ci:** change ci ([a58af01](https://github.com/gameframex/com.gameframex.unity.xincger.litjson/commit/a58af0161cfe6e11783e1faa7ffd6a9bdf718a5f))
-
-# Changelog
+* **ci:** change ci ([a58af01](https://github.com/gameframex/com.gameframex.unity.xincger.litjson/commit/a58af016c1cfe6e11783e1faa7ffd6a9bdf7185f))
 
 ## [1.0.2](https://github.com/GameFrameX/com.gameframex.unity.xincger.litjson/tree/1.0.2) (2025-06-01)
 
