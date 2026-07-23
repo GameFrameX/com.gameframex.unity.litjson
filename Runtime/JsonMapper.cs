@@ -525,6 +525,31 @@ namespace GameFrameX.LitJSON.Runtime
             return string.IsNullOrEmpty(attribute.PropertyName) ? info.Name : attribute.PropertyName;
         }
 
+        private static bool TryGetProperty(ObjectMetadata metadata, string name,
+            out PropertyMetadata prop)
+        {
+            if (metadata.Properties.TryGetValue(name, out prop))
+            {
+                return true;
+            }
+
+            // 精确匹配失败时按 OrdinalIgnoreCase 回退，兼容 JSON 键与成员名 /
+            // JsonProperty 大小写不一致的场景（例如 PascalCase 的 JSON 对应
+            // camelCase 的属性）。精确匹配的语义保持不变，仅原本会被跳过的字段获益。
+            foreach (var pair in metadata.Properties)
+            {
+                if (string.Equals(pair.Key, name,
+                    StringComparison.OrdinalIgnoreCase))
+                {
+                    prop = pair.Value;
+                    return true;
+                }
+            }
+
+            prop = default(PropertyMetadata);
+            return false;
+        }
+
         private static object ReadValue(Type inst_type, JsonReader reader)
         {
             reader.Read();
@@ -692,11 +717,8 @@ namespace GameFrameX.LitJSON.Runtime
 
                     var property = (string)reader.Value;
 
-                    if (t_data.Properties.ContainsKey(property))
+                    if (TryGetProperty(t_data, property, out var prop_data))
                     {
-                        var prop_data =
-                            t_data.Properties[property];
-
                         if (prop_data.IsField)
                         {
                             ((FieldInfo)prop_data.Info).SetValue(
