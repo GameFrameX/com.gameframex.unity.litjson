@@ -1,3 +1,10 @@
+## [1.2.2](https://github.com/gameframex/com.gameframex.unity.litjson/compare/1.2.1...1.2.2) (2026-07-23)
+
+
+### Bug Fixes
+
+* **litjson:** 反序列化支持属性名大小写不敏感匹配 ([e49d3b7](https://github.com/gameframex/com.gameframex.unity.litjson/commit/e49d3b7358873e9b37070684d25c3bc35e154169)), closes [#1](https://github.com/gameframex/com.gameframex.unity.litjson/issues/1) [#1](https://github.com/gameframex/com.gameframex.unity.litjson/issues/1)
+
 ## [1.2.1](https://github.com/gameframex/com.gameframex.unity.litjson/compare/1.2.0...1.2.1) (2026-06-15)
 
 
