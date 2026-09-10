@@ -47,8 +47,8 @@ namespace GameFrameX.LitJSON.Runtime
         private IList<KeyValuePair<string, JsonData>> object_list;
 
         // Reusable writer + lock for ToJson(), mirrors JsonMapper.static_writer pattern
-        private static readonly JsonWriter _writer = new();
-        private static readonly object _writerLock = new();
+        private static readonly JsonWriter _writer = new JsonWriter();
+        private static readonly object _writerLock = new object();
 
         #endregion
 

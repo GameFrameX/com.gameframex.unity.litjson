@@ -255,25 +255,25 @@ namespace GameFrameX.LitJSON.Runtime
             IDictionary<Type, ImporterFunc>> custom_importers_table;
 
         private static readonly IDictionary<Type, ArrayMetadata> array_metadata;
-        private static readonly object array_metadata_lock = new();
+        private static readonly object array_metadata_lock = new object();
 
-        private static readonly object custom_table_lock = new();
+        private static readonly object custom_table_lock = new object();
 
         private static readonly IDictionary<Type,
             IDictionary<Type, MethodInfo>> conv_ops;
 
-        private static readonly object conv_ops_lock = new();
+        private static readonly object conv_ops_lock = new object();
 
         private static readonly IDictionary<Type, ObjectMetadata> object_metadata;
-        private static readonly object object_metadata_lock = new();
+        private static readonly object object_metadata_lock = new object();
 
         private static readonly IDictionary<Type,
             IList<PropertyMetadata>> type_properties;
 
-        private static readonly object type_properties_lock = new();
+        private static readonly object type_properties_lock = new object();
 
         private static readonly JsonWriter static_writer;
-        private static readonly object static_writer_lock = new();
+        private static readonly object static_writer_lock = new object();
         private static bool _reentrantGuard;
 
         #endregion
