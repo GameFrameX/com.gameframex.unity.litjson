@@ -1,3 +1,10 @@
+## [1.2.3](https://github.com/gameframex/com.gameframex.unity.litjson/compare/1.2.2...1.2.3) (2026-09-10)
+
+
+### Bug Fixes
+
+* **litjson:** 移除 C# 9 语法以兼容 Unity 2019 ([8dc160b](https://github.com/gameframex/com.gameframex.unity.litjson/commit/8dc160b8f03551b1cd61d518b43728961d1b5d82)), closes [#3](https://github.com/gameframex/com.gameframex.unity.litjson/issues/3)
+
 ## [1.2.2](https://github.com/gameframex/com.gameframex.unity.litjson/compare/1.2.1...1.2.2) (2026-07-23)
 
 
