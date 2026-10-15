@@ -1,5 +1,4 @@
-﻿using UnityEngine.Scripting;
-
+﻿
 namespace GameFrameX.LitJSON.Runtime
 {
     /// <summary>
@@ -9,7 +8,7 @@ namespace GameFrameX.LitJSON.Runtime
     /// Helper MonoBehaviour that prevents the Unity IL2CPP build pipeline from stripping LitJson types.
     /// Works together with link.xml as a double safeguard against managed code stripping.
     /// </remarks>
-    [Preserve]
+    [UnityEngine.Scripting.Preserve]
     public class LitJsonCroppingHelper : UnityEngine.MonoBehaviour
     {
         /// <summary>
@@ -17,10 +16,10 @@ namespace GameFrameX.LitJSON.Runtime
         /// </summary>
         /// <remarks>
         /// Unity lifecycle method invoked on startup. References every public LitJson type via <c>typeof()</c>
-        /// so the IL2CPP linker retains them. The <c>[Preserve]</c> attribute and the <c>_ = typeof(...)</c>
+        /// so the IL2CPP linker retains them. The <c>[UnityEngine.Scripting.Preserve]</c> attribute and the <c>_ = typeof(...)</c>
         /// statements (C# 7.0 discard syntax) form a redundant anti-stripping mechanism alongside link.xml.
         /// </remarks>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public void Start()
         {
             _ = typeof(ArrayMetadata);

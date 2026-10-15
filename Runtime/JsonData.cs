@@ -17,7 +17,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.IO;
-using UnityEngine.Scripting;
 
 
 namespace GameFrameX.LitJSON.Runtime
@@ -62,7 +61,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// Gets the number of elements contained in the current JSON data.
         /// </remarks>
         /// <value>元素数量 / The number of elements</value>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public int Count
         {
             get { return EnsureCollection().Count; }
@@ -75,7 +74,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// Gets a value indicating whether the current JSON data holds an array.
         /// </remarks>
         /// <value>如果为数组类型则返回 <c>true</c>；否则返回 <c>false</c> / <c>true</c> if the data holds an array; otherwise <c>false</c></value>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public bool IsArray
         {
             get { return type == JsonType.Array; }
@@ -88,7 +87,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// Gets a value indicating whether the current JSON data holds a boolean.
         /// </remarks>
         /// <value>如果为布尔类型则返回 <c>true</c>；否则返回 <c>false</c> / <c>true</c> if the data holds a boolean; otherwise <c>false</c></value>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public bool IsBoolean
         {
             get { return type == JsonType.Boolean; }
@@ -101,7 +100,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// Gets a value indicating whether the current JSON data holds a double-precision floating-point number.
         /// </remarks>
         /// <value>如果为双精度浮点类型则返回 <c>true</c>；否则返回 <c>false</c> / <c>true</c> if the data holds a double; otherwise <c>false</c></value>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public bool IsDouble
         {
             get { return type == JsonType.Double; }
@@ -114,7 +113,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// Gets a value indicating whether the current JSON data holds a 32-bit integer.
         /// </remarks>
         /// <value>如果为 32 位整数类型则返回 <c>true</c>；否则返回 <c>false</c> / <c>true</c> if the data holds an int; otherwise <c>false</c></value>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public bool IsInt
         {
             get { return type == JsonType.Int; }
@@ -127,7 +126,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// Gets a value indicating whether the current JSON data holds a 64-bit long integer.
         /// </remarks>
         /// <value>如果为 64 位长整数类型则返回 <c>true</c>；否则返回 <c>false</c> / <c>true</c> if the data holds a long; otherwise <c>false</c></value>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public bool IsLong
         {
             get { return type == JsonType.Long; }
@@ -140,7 +139,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// Gets a value indicating whether the current JSON data holds an object.
         /// </remarks>
         /// <value>如果为对象类型则返回 <c>true</c>；否则返回 <c>false</c> / <c>true</c> if the data holds an object; otherwise <c>false</c></value>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public bool IsObject
         {
             get { return type == JsonType.Object; }
@@ -153,7 +152,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// Gets a value indicating whether the current JSON data holds a string.
         /// </remarks>
         /// <value>如果为字符串类型则返回 <c>true</c>；否则返回 <c>false</c> / <c>true</c> if the data holds a string; otherwise <c>false</c></value>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public bool IsString
         {
             get { return type == JsonType.String; }
@@ -166,7 +165,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// Gets the collection of keys in the object. Only valid when the data holds an object.
         /// </remarks>
         /// <value>键集合 / The collection of keys</value>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public ICollection<string> Keys
         {
             get
@@ -184,7 +183,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// </remarks>
         /// <param name="key">要定位的键 / The key to locate</param>
         /// <returns>如果包含该键则返回 <c>true</c>；否则返回 <c>false</c> / <c>true</c> if the key exists; otherwise <c>false</c></returns>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public bool ContainsKey(string key)
         {
             EnsureDictionary();
@@ -535,7 +534,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// </remarks>
         /// <param name="prop_name">属性名 / The property name</param>
         /// <value>与指定键关联的 <see cref="JsonData"/> 值 / The <see cref="JsonData"/> value associated with the specified key</value>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public JsonData this[string prop_name]
         {
             get
@@ -581,7 +580,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// </remarks>
         /// <param name="index">从零开始的索引 / The zero-based index</param>
         /// <value>指定索引处的 <see cref="JsonData"/> 值 / The <see cref="JsonData"/> value at the specified index</value>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public JsonData this[int index]
         {
             get
@@ -629,7 +628,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// <remarks>
         /// Initializes a new instance of the <see cref="JsonData"/> class with a JSON type of <see cref="JsonType.None"/>.
         /// </remarks>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public JsonData()
         {
         }
@@ -641,7 +640,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// Initializes a new instance of the <see cref="JsonData"/> class with the specified boolean value.
         /// </remarks>
         /// <param name="boolean">布尔值 / The boolean value</param>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public JsonData(bool boolean)
         {
             type = JsonType.Boolean;
@@ -655,7 +654,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// Initializes a new instance of the <see cref="JsonData"/> class with the specified double-precision floating-point number.
         /// </remarks>
         /// <param name="number">双精度浮点数 / The double-precision floating-point number</param>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public JsonData(double number)
         {
             type = JsonType.Double;
@@ -669,7 +668,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// Initializes a new instance of the <see cref="JsonData"/> class with the specified 32-bit integer.
         /// </remarks>
         /// <param name="number">32 位整数 / The 32-bit integer</param>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public JsonData(int number)
         {
             type = JsonType.Int;
@@ -683,7 +682,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// Initializes a new instance of the <see cref="JsonData"/> class with the specified 64-bit long integer.
         /// </remarks>
         /// <param name="number">64 位长整数 / The 64-bit long integer</param>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public JsonData(long number)
         {
             type = JsonType.Long;
@@ -699,7 +698,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// </remarks>
         /// <param name="obj">要包装的对象（支持 <see cref="Boolean"/>、<see cref="Double"/>、<see cref="Int32"/>、<see cref="Int64"/>、<see cref="String"/>） / The object to wrap (supports <see cref="Boolean"/>, <see cref="Double"/>, <see cref="Int32"/>, <see cref="Int64"/>, <see cref="String"/>)</param>
         /// <exception cref="ArgumentException">当对象类型无法被包装时抛出 / Thrown when the object type cannot be wrapped</exception>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public JsonData(object obj)
         {
             if (obj is bool)
@@ -748,7 +747,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// Initializes a new instance of the <see cref="JsonData"/> class with the specified string.
         /// </remarks>
         /// <param name="str">字符串 / The string</param>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public JsonData(string str)
         {
             type = JsonType.String;
@@ -768,7 +767,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// </remarks>
         /// <param name="data">要转换的布尔值 / The boolean value to convert</param>
         /// <returns>包含该布尔值的 <see cref="JsonData"/> 实例 / A <see cref="JsonData"/> instance holding the boolean value</returns>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public static implicit operator JsonData(bool data)
         {
             return new JsonData(data);
@@ -782,7 +781,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// </remarks>
         /// <param name="data">要转换的双精度浮点数 / The double value to convert</param>
         /// <returns>包含该双精度浮点数的 <see cref="JsonData"/> 实例 / A <see cref="JsonData"/> instance holding the double value</returns>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public static implicit operator JsonData(double data)
         {
             return new JsonData(data);
@@ -796,7 +795,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// </remarks>
         /// <param name="data">要转换的 32 位整数 / The 32-bit integer to convert</param>
         /// <returns>包含该整数的 <see cref="JsonData"/> 实例 / A <see cref="JsonData"/> instance holding the integer</returns>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public static implicit operator JsonData(int data)
         {
             return new JsonData(data);
@@ -810,7 +809,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// </remarks>
         /// <param name="data">要转换的 64 位长整数 / The 64-bit long integer to convert</param>
         /// <returns>包含该长整数的 <see cref="JsonData"/> 实例 / A <see cref="JsonData"/> instance holding the long integer</returns>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public static implicit operator JsonData(long data)
         {
             return new JsonData(data);
@@ -824,7 +823,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// </remarks>
         /// <param name="data">要转换的字符串 / The string to convert</param>
         /// <returns>包含该字符串的 <see cref="JsonData"/> 实例 / A <see cref="JsonData"/> instance holding the string</returns>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public static implicit operator JsonData(string data)
         {
             return new JsonData(data);
@@ -844,7 +843,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// <param name="data">要转换的 <see cref="JsonData"/> 实例 / The <see cref="JsonData"/> instance to convert</param>
         /// <returns>实例持有的布尔值 / The boolean value held by the instance</returns>
         /// <exception cref="InvalidCastException">当实例不持有布尔值时抛出 / Thrown when the instance does not hold a boolean</exception>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public static explicit operator bool(JsonData data)
         {
             if (data.type != JsonType.Boolean)
@@ -865,7 +864,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// <param name="data">要转换的 <see cref="JsonData"/> 实例 / The <see cref="JsonData"/> instance to convert</param>
         /// <returns>实例持有的双精度浮点数 / The double value held by the instance</returns>
         /// <exception cref="InvalidCastException">当实例不持有双精度浮点数时抛出 / Thrown when the instance does not hold a double</exception>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public static explicit operator double(JsonData data)
         {
             if (data.type != JsonType.Double)
@@ -887,7 +886,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// <param name="data">要转换的 <see cref="JsonData"/> 实例 / The <see cref="JsonData"/> instance to convert</param>
         /// <returns>实例持有的 32 位整数值 / The 32-bit integer value held by the instance</returns>
         /// <exception cref="InvalidCastException">当实例既不持有 32 位整数也不持有 64 位长整数时抛出 / Thrown when the instance holds neither an int nor a long</exception>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public static explicit operator int(JsonData data)
         {
             if (data.type != JsonType.Int && data.type != JsonType.Long)
@@ -909,7 +908,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// <param name="data">要转换的 <see cref="JsonData"/> 实例 / The <see cref="JsonData"/> instance to convert</param>
         /// <returns>实例持有的 64 位长整数值 / The 64-bit long integer value held by the instance</returns>
         /// <exception cref="InvalidCastException">当实例既不持有 64 位长整数也不持有 32 位整数时抛出 / Thrown when the instance holds neither a long nor an int</exception>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public static explicit operator long(JsonData data)
         {
             if (data.type != JsonType.Long && data.type != JsonType.Int)
@@ -930,7 +929,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// <param name="data">要转换的 <see cref="JsonData"/> 实例 / The <see cref="JsonData"/> instance to convert</param>
         /// <returns>实例持有的字符串 / The string held by the instance</returns>
         /// <exception cref="InvalidCastException">当实例不持有字符串时抛出 / Thrown when the instance does not hold a string</exception>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public static explicit operator string(JsonData data)
         {
             if (data.type != JsonType.String)
@@ -1564,7 +1563,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// </remarks>
         /// <param name="value">要添加的对象 / The object to add</param>
         /// <returns>新添加元素的从零开始的索引 / The zero-based index of the newly added element</returns>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public int Add(object value)
         {
             var data = ToJsonData(value);
@@ -1584,7 +1583,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// <returns>如果成功移除则返回 <c>true</c>；否则返回 <c>false</c> / <c>true</c> if the element was removed; otherwise <c>false</c></returns>
         /// <exception cref="KeyNotFoundException">对象模式下当指定键不存在时抛出 / Thrown in object mode when the specified key is not found</exception>
         /// <exception cref="InvalidOperationException">当实例既不是对象也不是数组时抛出 / Thrown when the instance is neither an object nor an array</exception>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public bool Remove(object obj)
         {
             json = null;
@@ -1621,7 +1620,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// <remarks>
         /// Removes all elements from the current JSON data.
         /// </remarks>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public void Clear()
         {
             if (IsObject)
@@ -1646,7 +1645,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// </remarks>
         /// <param name="x">要比较的 <see cref="JsonData"/> 实例 / The <see cref="JsonData"/> instance to compare</param>
         /// <returns>如果两者相等则返回 <c>true</c>；否则返回 <c>false</c> / <c>true</c> if equal; otherwise <c>false</c></returns>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public bool Equals(JsonData x)
         {
             if (x == null)
@@ -1767,7 +1766,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// Gets the JSON data type of the current instance.
         /// </remarks>
         /// <returns>当前实例持有的 <see cref="JsonType"/> / The <see cref="JsonType"/> held by the current instance</returns>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public JsonType GetJsonType()
         {
             return type;
@@ -1780,7 +1779,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// Sets the JSON data type of the current instance, resetting the corresponding internal fields to their default values.
         /// </remarks>
         /// <param name="type">目标 JSON 数据类型 / The target JSON data type</param>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public void SetJsonType(JsonType type)
         {
             if (this.type == type)
@@ -1833,7 +1832,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// Serializes the current JSON data to a JSON string. The result is cached after the first call.
         /// </remarks>
         /// <returns>序列化后的 JSON 字符串 / The serialized JSON string</returns>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public string ToJson()
         {
             if (json != null)
@@ -1865,7 +1864,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// Serializes the current JSON data to the specified <see cref="JsonWriter"/>.
         /// </remarks>
         /// <param name="writer">目标 <see cref="JsonWriter"/> / The target <see cref="JsonWriter"/></param>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public void ToJson(JsonWriter writer)
         {
             var old_validate = writer.Validate;

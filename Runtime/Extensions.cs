@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.Scripting;
 using System.Collections;
 
 namespace GameFrameX.LitJSON.Runtime
@@ -21,7 +20,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// <param name="w">目标 JsonWriter / Target JsonWriter</param>
         /// <param name="name">属性名 / Property name</param>
         /// <param name="value">属性值 / Property value</param>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public static void WriteProperty(this JsonWriter w, string name, long value)
         {
             w.WritePropertyName(name);
@@ -37,7 +36,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// <param name="w">目标 JsonWriter / Target JsonWriter</param>
         /// <param name="name">属性名 / Property name</param>
         /// <param name="value">属性值 / Property value</param>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public static void WriteProperty(this JsonWriter w, string name, string value)
         {
             w.WritePropertyName(name);
@@ -53,7 +52,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// <param name="w">目标 JsonWriter / Target JsonWriter</param>
         /// <param name="name">属性名 / Property name</param>
         /// <param name="value">属性值 / Property value</param>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public static void WriteProperty(this JsonWriter w, string name, bool value)
         {
             w.WritePropertyName(name);
@@ -69,7 +68,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// <param name="w">目标 JsonWriter / Target JsonWriter</param>
         /// <param name="name">属性名 / Property name</param>
         /// <param name="value">属性值 / Property value</param>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public static void WriteProperty(this JsonWriter w, string name, double value)
         {
             w.WritePropertyName(name);

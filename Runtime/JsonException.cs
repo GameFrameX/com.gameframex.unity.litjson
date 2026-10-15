@@ -12,7 +12,6 @@
 
 
 using System;
-using UnityEngine.Scripting;
 
 
 namespace GameFrameX.LitJSON.Runtime
@@ -36,7 +35,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// <remarks>
         /// Initializes a new instance of the <see cref="JsonException"/> class with a default error message.
         /// </remarks>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public JsonException() : base()
         {
         }
@@ -106,7 +105,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// Initializes a new instance of the <see cref="JsonException"/> class with a specified error message.
         /// </remarks>
         /// <param name="message">描述错误的消息 / The message that describes the error</param>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public JsonException(string message) : base(message)
         {
         }
@@ -119,7 +118,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// </remarks>
         /// <param name="message">描述错误的消息 / The error message that explains the reason for the exception</param>
         /// <param name="inner_exception">导致当前异常的内部异常引用 / The exception that is the cause of the current exception</param>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public JsonException(string message, Exception inner_exception) :
             base(message, inner_exception)
         {

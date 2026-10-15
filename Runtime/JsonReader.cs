@@ -16,7 +16,6 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Text;
-using UnityEngine.Scripting;
 
 
 namespace GameFrameX.LitJSON.Runtime
@@ -105,7 +104,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// <remarks>
         /// Gets or sets whether comments are allowed in the JSON text.
         /// </remarks>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public bool AllowComments
         {
             get { return lexer.AllowComments; }
@@ -118,7 +117,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// <remarks>
         /// Gets or sets whether single-quoted strings are allowed.
         /// </remarks>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public bool AllowSingleQuotedStrings
         {
             get { return lexer.AllowSingleQuotedStrings; }
@@ -131,7 +130,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// <remarks>
         /// Gets or sets whether non-member properties are skipped during deserialization.
         /// </remarks>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public bool SkipNonMembers
         {
             get { return skip_non_members; }
@@ -144,7 +143,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// <remarks>
         /// Gets a value indicating whether the end of the input has been reached.
         /// </remarks>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public bool EndOfInput
         {
             get { return end_of_input; }
@@ -156,7 +155,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// <remarks>
         /// Gets a value indicating whether the end of the current JSON text has been reached.
         /// </remarks>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public bool EndOfJson
         {
             get { return end_of_json; }
@@ -168,7 +167,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// <remarks>
         /// Gets the type of the token most recently read.
         /// </remarks>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public JsonToken Token
         {
             get { return token; }
@@ -180,7 +179,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// <remarks>
         /// Gets the value of the token most recently read.
         /// </remarks>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public object Value
         {
             get { return token_value; }
@@ -203,7 +202,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// Initializes a new instance of the <see cref="JsonReader" /> class using the provided JSON string.
         /// </remarks>
         /// <param name="json_text">要读取的 JSON 字符串。/ The JSON string to read.</param>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public JsonReader(string json_text) :
             this(new StringReader(json_text), true)
         {
@@ -216,7 +215,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// Initializes a new instance of the <see cref="JsonReader" /> class using the provided <see cref="TextReader" />.
         /// </remarks>
         /// <param name="reader">提供 JSON 文本的文本读取器。/ The text reader that supplies the JSON text.</param>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public JsonReader(TextReader reader) :
             this(reader, false)
         {
@@ -528,7 +527,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// <remarks>
         /// Closes the reader and releases the underlying resources it holds.
         /// </remarks>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public void Close()
         {
             if (end_of_input)
@@ -556,7 +555,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// Reads the next token from the JSON text.
         /// </remarks>
         /// <returns>如果成功读取下一个词法单元，则为 <c>true</c>；否则为 <c>false</c>。/ <c>true</c> if the next token was read successfully; otherwise, <c>false</c>.</returns>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public bool Read()
         {
             if (end_of_input)

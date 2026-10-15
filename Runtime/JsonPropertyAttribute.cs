@@ -12,7 +12,6 @@
 // ==========================================================================================
 
 using System;
-using UnityEngine.Scripting;
 
 namespace GameFrameX.LitJSON.Runtime
 {
@@ -32,7 +31,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// Initializes a new instance of the JsonPropertyAttribute class.
         /// </remarks>
         /// <param name="propertyName">JSON 属性名。</param>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public JsonPropertyAttribute(string propertyName)
         {
             PropertyName = propertyName;
@@ -44,7 +43,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// <remarks>
         /// Gets the JSON property name.
         /// </remarks>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public string PropertyName { get; private set; }
     }
 }

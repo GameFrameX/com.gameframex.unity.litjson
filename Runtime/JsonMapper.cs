@@ -17,7 +17,6 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Reflection;
-using UnityEngine.Scripting;
 
 
 namespace GameFrameX.LitJSON.Runtime
@@ -1192,7 +1191,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// <param name="prettyPrint">是否启用美化输出（缩进与换行） / Whether to enable pretty-printed output (indentation and line breaks)</param>
         /// <returns>序列化后的 JSON 字符串 / The serialized JSON string</returns>
         /// <exception cref="InvalidOperationException">在导出器或 ToString() 内部递归调用本方法时抛出 / Thrown when this method is called recursively from within an exporter or ToString()</exception>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public static string ToJson(object obj, bool prettyPrint = false)
         {
             lock (static_writer_lock)
@@ -1230,7 +1229,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// </remarks>
         /// <param name="obj">要序列化的对象 / The object to serialize</param>
         /// <param name="writer">用于写入 JSON 数据的写入器 / The writer used to write JSON data</param>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public static void ToJson(object obj, JsonWriter writer)
         {
             WriteValue(obj, writer, false, 0);
@@ -1244,7 +1243,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// </remarks>
         /// <param name="reader">提供 JSON 数据的读取器 / The reader that provides the JSON data</param>
         /// <returns>反序列化得到的 JsonData / The deserialized JsonData</returns>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public static JsonData ToObject(JsonReader reader)
         {
             return (JsonData)ToWrapper(
@@ -1259,7 +1258,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// </remarks>
         /// <param name="reader">提供 JSON 文本的读取器 / The text reader that provides the JSON text</param>
         /// <returns>反序列化得到的 JsonData / The deserialized JsonData</returns>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public static JsonData ToObject(TextReader reader)
         {
             var json_reader = new JsonReader(reader);
@@ -1276,7 +1275,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// </remarks>
         /// <param name="json">要反序列化的 JSON 字符串 / The JSON string to deserialize</param>
         /// <returns>反序列化得到的 JsonData / The deserialized JsonData</returns>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public static JsonData ToObject(string json)
         {
             return (JsonData)ToWrapper(
@@ -1292,7 +1291,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// <typeparam name="T">目标类型 / The target type</typeparam>
         /// <param name="reader">提供 JSON 数据的读取器 / The reader that provides the JSON data</param>
         /// <returns>反序列化得到的对象 / The deserialized object</returns>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public static T ToObject<T>(JsonReader reader)
         {
             return (T)ReadValue(typeof(T), reader);
@@ -1307,7 +1306,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// <typeparam name="T">目标类型 / The target type</typeparam>
         /// <param name="reader">提供 JSON 文本的读取器 / The text reader that provides the JSON text</param>
         /// <returns>反序列化得到的对象 / The deserialized object</returns>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public static T ToObject<T>(TextReader reader)
         {
             var json_reader = new JsonReader(reader);
@@ -1324,7 +1323,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// <typeparam name="T">目标类型 / The target type</typeparam>
         /// <param name="json">要反序列化的 JSON 字符串 / The JSON string to deserialize</param>
         /// <returns>反序列化得到的对象 / The deserialized object</returns>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public static T ToObject<T>(string json)
         {
             var reader = new JsonReader(json);
@@ -1341,7 +1340,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// <param name="json">要反序列化的 JSON 字符串 / The JSON string to deserialize</param>
         /// <param name="ConvertType">目标类型 / The target type</param>
         /// <returns>反序列化得到的对象 / The deserialized object</returns>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public static object ToObject(string json, Type ConvertType)
         {
             var reader = new JsonReader(json);
@@ -1358,7 +1357,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// <param name="factory">用于创建 IJsonWrapper 实例的工厂委托 / The factory delegate used to create IJsonWrapper instances</param>
         /// <param name="reader">提供 JSON 数据的读取器 / The reader that provides the JSON data</param>
         /// <returns>反序列化得到的 IJsonWrapper / The deserialized IJsonWrapper</returns>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public static IJsonWrapper ToWrapper(WrapperFactory factory,
             JsonReader reader)
         {
@@ -1374,7 +1373,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// <param name="factory">用于创建 IJsonWrapper 实例的工厂委托 / The factory delegate used to create IJsonWrapper instances</param>
         /// <param name="json">要反序列化的 JSON 字符串 / The JSON string to deserialize</param>
         /// <returns>反序列化得到的 IJsonWrapper / The deserialized IJsonWrapper</returns>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public static IJsonWrapper ToWrapper(WrapperFactory factory,
             string json)
         {
@@ -1391,7 +1390,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// </remarks>
         /// <typeparam name="T">要注册导出器的类型 / The type to register the exporter for</typeparam>
         /// <param name="exporter">执行导出逻辑的委托 / The delegate that performs the export logic</param>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public static void RegisterExporter<T>(ExporterFunc<T> exporter)
         {
             ExporterFunc exporter_wrapper =
@@ -1412,7 +1411,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// <typeparam name="TJson">JSON 输入值的类型 / Type of the JSON input value</typeparam>
         /// <typeparam name="TValue">转换后目标值的类型 / Type of the converted target value</typeparam>
         /// <param name="importer">执行转换逻辑的委托 / The delegate that performs the conversion logic</param>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public static void RegisterImporter<TJson, TValue>(
             ImporterFunc<TJson, TValue> importer)
         {
@@ -1432,7 +1431,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// <remarks>
         /// Removes all registered custom exporters.
         /// </remarks>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public static void UnregisterExporters()
         {
             lock (custom_table_lock)
@@ -1447,7 +1446,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// <remarks>
         /// Removes all registered custom importers.
         /// </remarks>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public static void UnregisterImporters()
         {
             lock (custom_table_lock)

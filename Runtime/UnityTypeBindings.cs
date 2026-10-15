@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.Scripting;
 using System;
 using System.Collections;
 
@@ -30,7 +29,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// Registers exporters and importers for all Unity built-in types (Type, Vector2, Vector3, Vector4, Quaternion, Color, Color32, Bounds, Rect, RectOffset).
         /// This method is idempotent: the <c>_registered</c> flag ensures registration runs only once, and it is invoked automatically by the static constructor.
         /// </remarks>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public static void Register()
         {
             if (_registered)

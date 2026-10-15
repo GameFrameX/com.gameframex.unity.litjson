@@ -16,7 +16,6 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Text;
-using UnityEngine.Scripting;
 
 
 namespace GameFrameX.LitJSON.Runtime
@@ -76,7 +75,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// Gets or sets the number of spaces used per indentation level.
         /// </remarks>
         /// <value>缩进空格数 / The number of spaces per indent level</value>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public int IndentValue
         {
             get { return indent_value; }
@@ -95,7 +94,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// (automatic newlines and indentation) is enabled.
         /// </remarks>
         /// <value>是否启用美化输出 / Whether pretty-printing is enabled</value>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public bool PrettyPrint
         {
             get { return pretty_print; }
@@ -109,7 +108,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// Gets the underlying text writer instance.
         /// </remarks>
         /// <value>底层文本写入器 / The underlying text writer</value>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public TextWriter TextWriter
         {
             get { return writer; }
@@ -123,7 +122,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// of JSON structure correctness is enabled.
         /// </remarks>
         /// <value>是否启用写入验证 / Whether validation is enabled</value>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public bool Validate
         {
             get { return validate; }
@@ -138,7 +137,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// converted to lower case when written.
         /// </remarks>
         /// <value>是否将属性名转为小写 / Whether property names are lower-cased</value>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public bool LowerCaseProperties
         {
             get { return lower_case_properties; }
@@ -162,7 +161,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// Initializes a new instance of the <see cref="JsonWriter"/> class using an internal
         /// <see cref="StringBuilder"/> as the output target.
         /// </remarks>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public JsonWriter()
         {
             inst_string_builder = new StringBuilder();
@@ -179,7 +178,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// specified <see cref="StringBuilder"/>.
         /// </remarks>
         /// <param name="sb">接收 JSON 输出的 <see cref="StringBuilder"/> / The <see cref="StringBuilder"/> that receives the JSON output</param>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public JsonWriter(StringBuilder sb) :
             this(new StringWriter(sb))
         {
@@ -194,7 +193,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// </remarks>
         /// <param name="writer">接收 JSON 输出的 <see cref="TextWriter"/> / The <see cref="TextWriter"/> that receives the JSON output</param>
         /// <exception cref="ArgumentNullException"><paramref name="writer"/> 为 <c>null</c> / <paramref name="writer"/> is <c>null</c></exception>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public JsonWriter(TextWriter writer)
         {
             if (writer == null)
@@ -446,7 +445,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// Resets the writer state, clearing the context stack and any already-written
         /// content (when backed by an internal <see cref="StringBuilder"/>).
         /// </remarks>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public void Reset()
         {
             has_reached_end = false;
@@ -468,7 +467,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// Writes a boolean value (<c>true</c> or <c>false</c>).
         /// </remarks>
         /// <param name="boolean">要写入的布尔值 / The boolean value to write</param>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public void Write(bool boolean)
         {
             DoValidation(Condition.Value);
@@ -486,7 +485,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// Writes a <see cref="decimal"/> number.
         /// </remarks>
         /// <param name="number">要写入的 decimal 数值 / The decimal number to write</param>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public void Write(decimal number)
         {
             DoValidation(Condition.Value);
@@ -505,7 +504,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// converted string lacks a decimal point or exponent, to keep valid JSON number syntax.
         /// </remarks>
         /// <param name="number">要写入的双精度浮点数 / The double value to write</param>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public void Write(double number)
         {
             DoValidation(Condition.Value);
@@ -530,7 +529,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// Writes a single-precision floating-point number.
         /// </remarks>
         /// <param name="number">要写入的单精度浮点数 / The float value to write</param>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public void Write(float number)
         {
             DoValidation(Condition.Value);
@@ -549,7 +548,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// Writes a 32-bit integer.
         /// </remarks>
         /// <param name="number">要写入的 32 位整数 / The 32-bit integer to write</param>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public void Write(int number)
         {
             DoValidation(Condition.Value);
@@ -567,7 +566,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// Writes a 64-bit long integer.
         /// </remarks>
         /// <param name="number">要写入的 64 位长整数 / The 64-bit long integer to write</param>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public void Write(long number)
         {
             DoValidation(Condition.Value);
@@ -585,7 +584,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// Writes a string. If the value is <c>null</c>, the JSON literal <c>null</c> is written.
         /// </remarks>
         /// <param name="str">要写入的字符串 / The string to write</param>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public void Write(string str)
         {
             DoValidation(Condition.Value);
@@ -611,7 +610,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// </remarks>
         /// <param name="number">要写入的无符号 64 位长整数 / The unsigned 64-bit long integer to write</param>
         // [CLSCompliant(false)]
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public void Write(ulong number)
         {
             DoValidation(Condition.Value);
@@ -628,7 +627,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// <remarks>
         /// Ends the writing of the current JSON array.
         /// </remarks>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public void WriteArrayEnd()
         {
             DoValidation(Condition.InArray);
@@ -655,7 +654,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// <remarks>
         /// Starts writing a new JSON array.
         /// </remarks>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public void WriteArrayStart()
         {
             DoValidation(Condition.NotAProperty);
@@ -676,7 +675,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// <remarks>
         /// Ends the writing of the current JSON object.
         /// </remarks>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public void WriteObjectEnd()
         {
             DoValidation(Condition.InObject);
@@ -703,7 +702,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// <remarks>
         /// Starts writing a new JSON object.
         /// </remarks>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public void WriteObjectStart()
         {
             DoValidation(Condition.NotAProperty);
@@ -726,7 +725,7 @@ namespace GameFrameX.LitJSON.Runtime
         /// is enabled, the property name is converted to lower case.
         /// </remarks>
         /// <param name="property">要写入的属性名 / The property name to write</param>
-        [Preserve]
+        [UnityEngine.Scripting.Preserve]
         public void WritePropertyName(string property)
         {
             DoValidation(Condition.Property);
