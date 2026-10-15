@@ -46,7 +46,7 @@ Unity용으로 개선된 **LitJson** 라이브러리로, [XINCGer/LitJson4Unity]
 
 - `link.xml` — 선언적 타입 보존
 - `LitJsonCroppingHelper` — 시작 시 리플렉션으로 핵심 타입을 참조하여 스트리핑을 방지하는 런타임 헬퍼
-- `[Preserve]` 어트리뷰트 — 리플렉션에 민감한 멤버(생성자, 프로퍼티 getter, 익스포터 등)에 일괄 적용되어 IL2CPP가 이를 유지하도록 합니다
+- `[UnityEngine.Scripting.Preserve]` 어트리뷰트 — 리플렉션에 민감한 멤버(생성자, 프로퍼티 getter, 익스포터 등)에 일괄 적용되어 IL2CPP가 이를 유지하도록 합니다
 
 ## 빠른 시작
 
@@ -228,7 +228,7 @@ JsonMapper.RegisterImporter<string, DateTime>(s =>
 
 1. 스트리핑 필터용 `link.xml` 추가
 2. `LitJsonCroppingHelper` 안티 스트리핑 헬퍼 추가
-3. 리플렉션에 중요한 멤버에 `[Preserve]` 일괄 적용
+3. 리플렉션에 중요한 멤버에 `[UnityEngine.Scripting.Preserve]` 일괄 적용
 4. 커스텀 JSON 프로퍼티 이름을 위한 `JsonPropertyAttribute` 추가
 
 ## 문서

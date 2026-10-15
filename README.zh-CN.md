@@ -46,7 +46,7 @@
 
 - `link.xml` — 声明式类型保留
 - `LitJsonCroppingHelper` — 运行时防裁剪助手，在启动时通过反射触达关键类型
-- `[Preserve]` 特性 — 批量应用于对反射敏感的成员（构造函数、属性 getter、导出器），使 IL2CPP 保留它们
+- `[UnityEngine.Scripting.Preserve]` 特性 — 批量应用于对反射敏感的成员（构造函数、属性 getter、导出器），使 IL2CPP 保留它们
 
 ## 快速开始
 
@@ -228,7 +228,7 @@ JsonMapper.RegisterImporter<string, DateTime>(s =>
 
 1. 新增 `link.xml` 用于裁剪过滤器
 2. 新增 `LitJsonCroppingHelper` 防裁剪助手
-3. 对反射关键成员批量应用 `[Preserve]`
+3. 对反射关键成员批量应用 `[UnityEngine.Scripting.Preserve]`
 4. 新增 `JsonPropertyAttribute` 用于自定义 JSON 属性名
 
 ## 文档

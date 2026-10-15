@@ -46,7 +46,7 @@ Ships with three complementary safeguards so the library survives Unity's manage
 
 - `link.xml` — declarative type preservation
 - `LitJsonCroppingHelper` — runtime anti-stripping helper that touches critical types via reflection on startup
-- `[Preserve]` attributes — batch-applied on reflection-sensitive members (constructors, property getters, exporters) so IL2CPP keeps them
+- `[UnityEngine.Scripting.Preserve]` attributes — batch-applied on reflection-sensitive members (constructors, property getters, exporters) so IL2CPP keeps them
 
 ## Quick Start
 
@@ -228,7 +228,7 @@ JsonMapper.RegisterImporter<string, DateTime>(s =>
 
 1. Added `link.xml` for stripping filter
 2. Added `LitJsonCroppingHelper` anti-stripping helper
-3. Batch-applied `[Preserve]` on reflection-critical members
+3. Batch-applied `[UnityEngine.Scripting.Preserve]` on reflection-critical members
 4. Added `JsonPropertyAttribute` for custom JSON property names
 
 ## Documentation

@@ -46,7 +46,7 @@ Unity のマネージドコード削除（managed code stripping）に対抗す�
 
 - `link.xml` — 宣言的な型保持
 - `LitJsonCroppingHelper` — 起動時にリフレクションで重要な型を参照し、削除を防ぐランタイムヘルパー
-- `[Preserve]` 属性 — リフレクションに依存するメンバー（コンストラクタ、プロパティの getter、エクスポーターなど）に一括付与し、IL2CPP が保持するように指定
+- `[UnityEngine.Scripting.Preserve]` 属性 — リフレクションに依存するメンバー（コンストラクタ、プロパティの getter、エクスポーターなど）に一括付与し、IL2CPP が保持するように指定
 
 ## クイックスタート
 
@@ -228,7 +228,7 @@ JsonMapper.RegisterImporter<string, DateTime>(s =>
 
 1. コード削除フィルター用の `link.xml` を追加
 2. 削除対策ヘルパー `LitJsonCroppingHelper` を追加
-3. リフレクションに依存する重要なメンバーに `[Preserve]` を一括付与
+3. リフレクションに依存する重要なメンバーに `[UnityEngine.Scripting.Preserve]` を一括付与
 4. カスタム JSON プロパティ名のための `JsonPropertyAttribute` を追加
 
 ## Documentation
