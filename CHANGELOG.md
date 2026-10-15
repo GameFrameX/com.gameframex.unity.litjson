@@ -1,3 +1,10 @@
+## [1.2.4](https://github.com/gameframex/com.gameframex.unity.litjson/compare/1.2.3...1.2.4) (2026-10-15)
+
+
+### Bug Fixes
+
+* **litjson:** Preserve 特性改为完全限定名 ([a5537d9](https://github.com/gameframex/com.gameframex.unity.litjson/commit/a5537d942bac8239513113c751c9fe01a9866d45))
+
 ## [1.2.3](https://github.com/gameframex/com.gameframex.unity.litjson/compare/1.2.2...1.2.3) (2026-09-10)
 
 
