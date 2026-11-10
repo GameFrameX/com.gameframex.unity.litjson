@@ -1,3 +1,10 @@
+## [1.2.5](https://github.com/gameframex/com.gameframex.unity.litjson/compare/1.2.4...1.2.5) (2026-11-10)
+
+
+### Bug Fixes
+
+* **litjson:** 添加完整 link.xml 防代码裁剪保护 ([2f87245](https://github.com/gameframex/com.gameframex.unity.litjson/commit/2f87245f7a8615829ed5719012b6a3c86c3e30d2))
+
 ## [1.2.4](https://github.com/gameframex/com.gameframex.unity.litjson/compare/1.2.3...1.2.4) (2026-10-15)
 
 
